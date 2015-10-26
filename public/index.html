@@ -4,13 +4,23 @@
     <meta charset="utf-8">
     <title>Reims Demo</title>
     <!--<link rel="stylesheet" href="css/base.css" />-->
-    <script src="//cdn.jsdelivr.net/pouchdb/5.0.0/pouchdb.min.js"></script>
+    <!--<script src="//cdn.jsdelivr.net/pouchdb/5.0.0/pouchdb.min.js"></script>-->
+    <script src="scripts/pouchdb.min.js"></script>
   </head>
   <body>
     <div id="content"></div>
     <script type="text/javascript" src="scripts/main.js"></script>
     <script type="text/javascript">
-      console.log("Index.html loaded properly");
+      console.log("Index.html loaded properly, v2");
+      PouchDB.debug.enable('*');
+      var db = new PouchDB('http://localhost:5984/eyeglasses');
+      console.log(window.PouchDB);
+      console.debug("Created connection to eyeglasses db");
+      console.log(db);
+
+      db.info().then(function(info) {
+        console.log(info);
+      });
     </script>
   </body>
 </html>
