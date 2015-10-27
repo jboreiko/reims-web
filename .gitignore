@@ -28,3 +28,6 @@ node_modules
 
 # Emacs temp files
 *~
+
+# Bower 
+public/bower_components
