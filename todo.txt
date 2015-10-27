@@ -1,0 +1,4 @@
+TODOs
+-----
+- Update to use require.js
+- Update to use grunt
