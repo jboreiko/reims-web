@@ -4,13 +4,20 @@
   "description": "Richmond Eyeglass Inventory Matching System Web Version",
   "main": "app.js",
   "dependencies": {
+    "bower": "^1.6.5",
     "express": "^4.13.3",
     "pouchdb": "^5.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "karma": "^0.13.14"
+  },
   "scripts": {
-    "test": "jasmine-node spec",
-    "start": "node app.js"
+    "postinstall": "bower install",
+    "prestart": "npm install --production",
+    "start": "node app.js",
+    "pretest": "npm install",
+    "test": "jasmine-node spec"
   },
   "repository": {
     "type": "git",
