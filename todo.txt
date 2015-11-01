@@ -3,3 +3,4 @@ TODOs
 - Update to use require.js
 - Update to use grunt
 - Update to use karma + phantomjs
+- Update to use protractor
