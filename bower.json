@@ -26,6 +26,7 @@
     "pouchdb": "~5.0.0",
     "angular": "~1.4.7",
     "angular-route": "~1.4.7",
-    "angular-resource": "~1.4.7"
+    "angular-resource": "~1.4.7",
+    "angular-pouchdb": "~4.0.0"
   }
 }

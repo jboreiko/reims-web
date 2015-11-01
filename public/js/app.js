@@ -11,6 +11,9 @@ reimsApp.config(['$routeProvider', function($routeProvider) {
 	    templateUrl: 'partials/search.html',
 	    controller: 'SearchCtrl'
 	}).
+	when('/results', {
+	    templateUrl: 'partials/results.html',
+	}).
 	when('/help', {
 	    templateUrl: 'partials/help.html'
 	}).

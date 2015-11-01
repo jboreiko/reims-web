@@ -4,8 +4,14 @@
 
 var reimsControllers = angular.module('reimsControllers', []);
 
-reimsControllers.controller('SearchCtrl', ['$scope',
-  function($scope) {
+reimsControllers.controller(
+    'SearchCtrl', ['$scope', '$location',
+		   function($scope, $location) {
+		       $scope.search = function(searchTerms) {
+			   console.log("Running a search with ", searchTerms);
+			   $location.path("/results");
+		       };
+	 
     //$scope.phones = Phone.query();
     //$scope.orderProp = 'age';
   }]);

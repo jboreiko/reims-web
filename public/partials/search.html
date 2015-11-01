@@ -1,39 +1,61 @@
-<div class="row">
-  SKU: <input ng-model="sku">
-</div>
-<div class="row">
-  Type: <select ng-model="type">
-    <option value="single">Single</option>
-    <option value="bifocal">Bifocal</option>
-    <option value="reader">Reader</option>
-  </select>
-</div>
-<div class="row">
-  Gender: <select ng-model="gender">
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="unisex">Unisex</option>
-  </select>
-</div>
-<div class="row">
-  Size: <select ng-model="size">
-    <option value="small">Small</option>
-    <option value="medium">Medium</option>
-    <option value="large">Large</option>
-    <option value="child">Child</option>	
-  </select>
-</div>
-<div class="row">
-  Tint: <select ng-model="tint">
-    <option value="none">None</option>
-    <option value="dark">Dark</option>
-    <option value="light">Light</option>
-  </select>
-</div>
-<div class="row">
-  Material: <select ng-model="material">
-    <option value="metal">Metal</option>
-    <option value="plastic">Plastic</option>
-  </select>
-</div>
-</div>
+<form novalidate class="form-horizontal">
+  <div class="form-group">
+    <label for="sku" class="col-sm-2 control-label">SKU</label>
+    <div class="col-sm-10"><input class="form-control" id="sku" placeholder="SKU" ng-model="searchTerms.sku" required></div>
+  </div>
+  <div class="form-group">
+    <label for="lenseType" class="col-sm-2 control-label">Type</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="lenseType" ng-model="searchTerms.lenseType">
+	<option value="single">Single</option>
+	<option value="bifocal">Bifocal</option>
+	<option value="reader">Reader</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="gender" class="col-sm-2 control-label">Gender</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="gender" ng-model="searchTerms.gender">
+	<option value="male">Male</option>
+	<option value="female">Female</option>
+	<option value="unisex">Unisex</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="size" class="col-sm-2 control-label">Size</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="size" ng-model="searchTerms.size">
+	<option value="small">Small</option>
+	<option value="medium">Medium</option>
+	<option value="large">Large</option>
+	<option value="child">Child</option>	
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="tint" class="col-sm-2 control-label">Tint</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="tint" ng-model="searchTerms.tint">
+	<option value="none">None</option>
+	<option value="dark">Dark</option>
+	<option value="light">Light</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="material" class="col-sm-2 control-label">Material</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="material" ng-model="searchTerms.material">
+	<option value="metal">Metal</option>
+	<option value="plastic">Plastic</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" ng-click="search(searchTerms)" class="btn btn-primary">Search Inventory</button>
+    </div>
+  </div>
+</form>
