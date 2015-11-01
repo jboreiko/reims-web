@@ -1,21 +1,24 @@
 'use strict';
-console.log("Loaded main.js");
 
 var reimsApp = angular.module('reimsApp', [
     'ngRoute',
     'reimsControllers'
 ]);
 
-reimsApp.config(['$routeProvider',
-  function($routeProvider) {
+reimsApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-      when('/search', {
-        templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl'
-      }).
-      otherwise({
-        redirectTo: '/search'
-      });
-  }]);
+	when('/search', {
+	    templateUrl: 'partials/search.html',
+	    controller: 'SearchCtrl'
+	}).
+	when('/help', {
+	    templateUrl: 'partials/help.html'
+	}).
+	when('/home', {
+	    templateUrl: 'partials/home.html'
+	}).
+	otherwise({
+	    redirectTo: '/search'
+	});
+}]);
 
-console.log("Main complete");

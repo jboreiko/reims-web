@@ -1,28 +1,39 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
-
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
-      </select>
-
-    </div>
-    <div class="col-md-10">
-      <!--Body content-->
-
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp"
-            class="thumbnail phone-listing">
-          <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
-
-    </div>
-  </div>
+<div class="row">
+  SKU: <input ng-model="sku">
+</div>
+<div class="row">
+  Type: <select ng-model="type">
+    <option value="single">Single</option>
+    <option value="bifocal">Bifocal</option>
+    <option value="reader">Reader</option>
+  </select>
+</div>
+<div class="row">
+  Gender: <select ng-model="gender">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="unisex">Unisex</option>
+  </select>
+</div>
+<div class="row">
+  Size: <select ng-model="size">
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+    <option value="child">Child</option>	
+  </select>
+</div>
+<div class="row">
+  Tint: <select ng-model="tint">
+    <option value="none">None</option>
+    <option value="dark">Dark</option>
+    <option value="light">Light</option>
+  </select>
+</div>
+<div class="row">
+  Material: <select ng-model="material">
+    <option value="metal">Metal</option>
+    <option value="plastic">Plastic</option>
+  </select>
+</div>
 </div>
