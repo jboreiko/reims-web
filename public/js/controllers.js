@@ -11,10 +11,20 @@ reimsControllers.controller(
 			   console.log("Running a search with ", searchTerms);
 			   $location.path("/results");
 		       };
-	 
-    //$scope.phones = Phone.query();
-    //$scope.orderProp = 'age';
-  }]);
+		   }]);
+
+reimsControllers.controller(
+    'HomeCtrl', ['$scope', 'EyeglassRecords',
+		 function($scope, EyeglassRecords) {
+		     console.log("Home controller", EyeglassRecords);
+
+		     $scope.docCount = "unknown"
+		     
+		     EyeglassRecords.info().then(function(info) {
+			 console.log("Doc count is ", info.doc_count);
+			 $scope.docCount = info.doc_count;
+		     });
+		 }]);
 
 /*
 phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',

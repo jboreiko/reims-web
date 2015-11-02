@@ -2,7 +2,8 @@
 
 var reimsApp = angular.module('reimsApp', [
     'ngRoute',
-    'reimsControllers'
+    'reimsControllers',
+    'reimsServices'
 ]);
 
 reimsApp.config(['$routeProvider', function($routeProvider) {
@@ -18,7 +19,8 @@ reimsApp.config(['$routeProvider', function($routeProvider) {
 	    templateUrl: 'partials/help.html'
 	}).
 	when('/home', {
-	    templateUrl: 'partials/home.html'
+	    templateUrl: 'partials/home.html',
+	    controller: 'HomeCtrl'
 	}).
 	otherwise({
 	    redirectTo: '/search'
