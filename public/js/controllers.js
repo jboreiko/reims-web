@@ -20,9 +20,16 @@ reimsControllers.controller(
 
 		     $scope.docCount = "unknown"
 		     
-		     EyeglassRecords.info().then(function(info) {
+		     EyeglassRecords.localInfo().then(function(info) {
 			 console.log("Doc count is ", info.doc_count);
 			 $scope.docCount = info.doc_count;
+		     });
+
+		     $scope.$watch(EyeglassRecords, function (newVal, oldVal) {
+			 console.log(newVal, oldVal)
+			 if (typeof newVal !== 'undefined') {
+			     $scope.syncState = newVal.syncState
+			 }
 		     });
 		 }]);
 
