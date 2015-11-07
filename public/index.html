@@ -36,11 +36,14 @@
           </button>
           <a class="navbar-brand active" href="#home">REIMS</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse" ng-controller="SyncCtrl">
           <ul class="nav navbar-nav">
             <li><a href="#search">Search</a></li>
             <li><a href="#help">Help</a></li>
           </ul>
+	  <ul class="nav navbar-nav navbar-right">
+	    <li><a href="#sync">Database Sync: {{syncState}}</a></li>
+	  </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>

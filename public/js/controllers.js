@@ -18,19 +18,40 @@ reimsControllers.controller(
 		 function($scope, EyeglassRecords) {
 		     console.log("Home controller", EyeglassRecords);
 
-		     $scope.docCount = "unknown"
-		     
+		 }]);
+
+reimsControllers.controller(
+    'SyncCtrl', ['$scope', 'EyeglassRecords',
+		 function($scope, EyeglassRecords) {
+		     console.log("Sync controller")
+
+		     $scope.syncState = "unknown"
+
+		     EyeglassRecords.syncManager.on('change', function (change) {
+			 // yo, something changed!
+			 console.log("Something changed", change);
+		     }).on('paused', function (info) {
+			 // replication was paused, usually because of a lost connection
+			 console.log("Replication paused", info)
+			 $scope.syncState = "paused"
+		     }).on('active', function (info) {
+			 // replication was resumed
+			 console.log("Replication back online", info)
+		     }).on('error', function (err) {
+			 // totally unhandled error (shouldn't happen)
+			 console.log("Replicaiton catastrophically failed", err)
+		     }).on('complete', function(err) {
+			 console.log("We are currently in sync!")
+			 $scope.syncState = "down"
+		     });
+
+     		     $scope.docCount = "unknown"
 		     EyeglassRecords.localInfo().then(function(info) {
 			 console.log("Doc count is ", info.doc_count);
 			 $scope.docCount = info.doc_count;
 		     });
 
-		     $scope.$watch(EyeglassRecords, function (newVal, oldVal) {
-			 console.log(newVal, oldVal)
-			 if (typeof newVal !== 'undefined') {
-			     $scope.syncState = newVal.syncState
-			 }
-		     });
+
 		 }]);
 
 /*

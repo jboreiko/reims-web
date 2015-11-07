@@ -22,8 +22,12 @@ reimsApp.config(['$routeProvider', function($routeProvider) {
 	    templateUrl: 'partials/home.html',
 	    controller: 'HomeCtrl'
 	}).
+	when('/sync', {
+	    templateUrl: 'partials/sync.html',
+	    controller: 'SyncCtrl'
+	}).
 	otherwise({
-	    redirectTo: '/search'
+	    redirectTo: '/home'
 	});
 }]);
 
