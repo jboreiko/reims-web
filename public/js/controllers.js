@@ -11,6 +11,7 @@ reimsControllers.controller(
 		       
 		       EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
 			   $scope.allResultRows = results.rows
+                           $scope.allResultRowsDisplayed = [].concat($scope.allResultRows);
 		       }).catch(function(err) {
 			   console.log(err)
 		       });
