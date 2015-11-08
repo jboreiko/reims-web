@@ -3,7 +3,8 @@
 var reimsApp = angular.module('reimsApp', [
     'ngRoute',
     'reimsControllers',
-    'reimsServices'
+    'reimsServices',
+    'ui.bootstrap'
 ]);
 
 reimsApp.config(['$routeProvider', function($routeProvider) {
