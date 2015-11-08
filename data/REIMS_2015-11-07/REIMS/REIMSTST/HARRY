@@ -1,0 +1,30 @@
+sele * from getfile() where type = "B" and enterdate > {01/25/2008}
+sele * from getfile() where type = "B" and enterdate > {01/25/2008} into cursor BFD2008
+USE
+SELECT 5
+BROWSE LAST
+sele * fron bfd2008 where odsphere <= 1 and >0 into cursor bf0to1
+sele * fron bfd2008 where odsphere <= 1 and opsphere >0 into cursor bf0to1
+sele * from bfd2008 where odsphere <= 1 and opsphere >0 into cursor bf0to1
+sele * from bfd2008 where odsphere <= 1 and odsphere >0 into cursor bf0to1
+BROWSE LAST
+sele * from bfd2008 where odsphere >=-1 and odsphere <0 into cursor bfm1to0
+BROWSE LAST
+sele * from bfd2008 where odcylinder >=-1 and odcylinder <0 into cursor bfcm1to0
+BROWSE LAST
+SELECT 4
+copy to bfsoto1.dbf
+SELECT 6
+copy to bfsm1to0.dbf
+copy to bfcm1to0.dbf
+SELECT 7
+sele * from bfd2008 where odsphere <= 1 and odsphere >0 into table bf0to1
+sele * from bfd2008 where odsphere >=-1 and odsphere <0 into table bfm1to0
+sele * from bfd2008 where odcylinder >=-1 and odcylinder <0 into table bfcm1to0
+sele * from bfd2008 where odcylinder >=-1 and odcylinder <0 into table \data\bfcm1to0
+SELECT 8
+USE
+SELECT 9
+USE
+SELECT 10
+USE

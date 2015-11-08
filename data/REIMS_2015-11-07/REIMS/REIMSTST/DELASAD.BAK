@@ -1,0 +1,25 @@
+* delasad.prg
+****To delete glasses deleted by ASAPROSAR
+* 062709
+CLOSE DATA
+count=0
+
+
+SELECT B
+USE glsku
+SET ORDER TO TAG Sku 
+SELECT A
+USE GETFILE() EXCLUSIVE && look for file of ASAPROSAR deletions
+SET RELATION TO sku INTO Glsku ADDITIVE
+
+SCAN
+	IF B.sku = glsku.sku
+		SELE B
+		REPLACE glsku.enterdate WITH carlosd.enterdate
+		DELE
+		count = count + 1
+		SELE A
+	ENDIF	
+ENDSCAN
+
+WAIT WINDOW STR(count,5) + " deleted"

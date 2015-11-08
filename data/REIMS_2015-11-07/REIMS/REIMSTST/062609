@@ -1,0 +1,3 @@
+set defa to \reims\reimstst
+sele * from adisp where sku in (select sku from del10)
+sele * from adisp where sku in (select sku from deleted)

@@ -1,0 +1,49 @@
+#! /usr/bin/python
+
+import sys
+import os
+import dbf
+import csv
+import json
+import couchdb
+
+def usage():
+    print("{} <dbf-file> <couchdb-table-name>".format(sys.argv[0]))
+
+def write_json(csv_rows, db_name):
+    couch = couchdb.Server()
+    db = couch[db_name]
+    for row in csv_rows:
+        print row
+        print db.save(row)
+
+def read_dbf():
+    with dbf.Table(sys.argv[1]) as toImport:
+        toImport.open()
+        print toImport
+        dbf.export(toImport, "temp.csv")
+        toImport.close()
+
+    
+
+def read_csv():
+    csv_rows = []
+    with open('temp.csv') as csvToImport:
+        reader = csv.DictReader(csvToImport)
+        title = reader.fieldnames
+        print title
+        for row in reader:
+            csv_rows.extend([{title[i]:row[title[i]].strip() for i in range(len(title))}])
+
+    os.remove('temp.csv')
+    write_json(csv_rows, sys.argv[2])
+
+
+        
+if (len(sys.argv) != 3):
+    usage()
+    exit()
+
+print("Starting to ingest {} into local couchdb table named {}".format(sys.argv[1], sys.argv[2]))
+read_dbf()
+read_csv()
