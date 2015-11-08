@@ -31,3 +31,6 @@ node_modules
 
 # Bower 
 public/bower_components
+
+# Data
+*data/*
