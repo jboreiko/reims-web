@@ -4,7 +4,8 @@ var reimsApp = angular.module('reimsApp', [
     'ngRoute',
     'reimsControllers',
     'reimsServices',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'smart-table'
 ]);
 
 reimsApp.config(['$routeProvider', function($routeProvider) {

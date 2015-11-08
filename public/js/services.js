@@ -5,10 +5,11 @@
 var reimsServices = angular.module('reimsServices', ['pouchdb']);
 
 reimsServices.service('EyeglassRecords', ['pouchDB', '$rootScope', function(pouchDB, $rootScope) {
+    var database_name = "eyeglasses"
     console.log("EyeglassRecords services");
-    var localDB = pouchDB('eyeglasses')
+    var localDB = pouchDB(database_name)
     console.log("Opened local database ", localDB);
-    var remoteDB = pouchDB('http://localhost:5984/eyeglasses')
+    var remoteDB = pouchDB('http://localhost:5984/' + database_name)
     console.log("Opened remote database ", remoteDB);
 
     var syncManager = localDB.sync(remoteDB, {
@@ -40,5 +41,6 @@ reimsServices.service('EyeglassRecords', ['pouchDB', '$rootScope', function(pouc
     
     return {
 	localInfo : function() { return localDB.info() },
+	localAllDocs : function(opts) { return localDB.allDocs(opts) }
     }
 }]);

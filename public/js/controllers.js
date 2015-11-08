@@ -5,12 +5,25 @@
 var reimsControllers = angular.module('reimsControllers', []);
 
 reimsControllers.controller(
-    'SearchCtrl', ['$scope', '$location',
-		   function($scope, $location) {
+    'SearchCtrl', ['$scope', '$location', 'EyeglassRecords',
+		   function($scope, $location, EyeglassRecords) {
+		       $scope.searchTerms = {}
+		       
+		       EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
+			   $scope.allResultRows = results.rows
+			   $scope.allResultRowsDisplayed = [].concat($scope.allResultRows);
+			   console.log(results)
+		       }).catch(function(err) {
+			   console.log(err)
+		       });
+		       
 		       $scope.search = function(searchTerms) {
 			   console.log("Running a search with ", searchTerms);
 			   $location.path("/results");
 		       };
+
+		       $scope.quickSearch = function(obj) {
+		       }
 		   }]);
 
 reimsControllers.controller(
@@ -34,21 +47,28 @@ reimsControllers.controller(
     'SyncCtrl', ['$scope', '$rootScope', 'EyeglassRecords',
 		 function($scope, $rootScope, EyeglassRecords) {
 		     console.log("Sync controller")
-
+     		     $scope.docCount = "unknown"
 		     $scope.syncState = "unknown"
+		     
 		     $rootScope.$on("sync:pause", function(event, data) {
 			 console.log("Controller: pause")
 			 $scope.syncState = "pause"
+			 updateCount()
 		     })
 		     $rootScope.$on("sync:change", function(event, data) {
 			 $scope.syncState = "changing"
+ 			 updateCount()
 		     })
 
-     		     $scope.docCount = "unknown"
-		     EyeglassRecords.localInfo().then(function(info) {
-			 console.log("Doc count is ", info.doc_count);
-			 $scope.docCount = info.doc_count;
-		     });
+
+		     var updateCount = function()
+		     {
+			 EyeglassRecords.localInfo().then(function(info) {
+			     console.log("Doc count is ", info.doc_count);
+			     $scope.docCount = info.doc_count;
+			 });
+		     }
+		     updateCount()
 
 		 }]);
 
