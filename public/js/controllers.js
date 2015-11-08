@@ -5,8 +5,8 @@
 var reimsControllers = angular.module('reimsControllers', []);
 
 reimsControllers.controller(
-    'SearchCtrl', ['$scope', '$location', 'EyeglassRecords',
-		   function($scope, $location, EyeglassRecords) {
+    'SearchCtrl', ['$scope', '$location', '$uibModal', 'EyeglassRecords',
+		   function($scope, $location, $uibModal, EyeglassRecords) {
 		       $scope.searchTerms = {}
 		       
 		       EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
@@ -20,16 +20,43 @@ reimsControllers.controller(
 			   $location.path("/results");
 		       };
 
-		       $scope.dispense = function(id) {
-			   console.log("Dispensing", id)
+		       $scope.dispense = function(row) {
+			   console.log("Dispensing", row.id)
+			   $scope.open({"name" : "dispense", "row" : row});
 		       };
 
 		       $scope.markAsMissing = function(id) {
 			   console.log("Marking as missing", id)
 		       };
 
+		       $scope.open = function (action) {
+			   var modalInstance = $uibModal.open({
+			       animation: true,
+			       templateUrl: 'partials/resultActionModal.html',
+			       controller: 'resultActionModalCtrl',
+			       resolve: {
+				   action: function() {
+				       return action
+				   }
+			       }
+			   })};
+		       
 		   }]);
 
+reimsControllers.controller(
+    'resultActionModalCtrl', ['$scope', '$uibModalInstance', 'action',
+			      function($scope, $uibModalInstance, action) {
+				  $scope.action = action
+
+				  $scope.ok = function() {
+				      $uibModalInstance.close()
+				  }
+
+				  $scope.cancel = function() {
+				      $uibModalInstance.dismiss('cancel');
+				  }
+			      }]);
+    
 reimsControllers.controller(
     'HomeCtrl', ['$scope', 'EyeglassRecords',
 		 function($scope, EyeglassRecords) {
