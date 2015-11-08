@@ -1,6 +1,14 @@
 <div class="row">
-  <div class="col-md-12">
-    <p class="text-center">The REIMS local database currently contains {{docCount}} documents.</p>
+  <div class="col-sm-12">
     <p class="text-center">The local and remote databases are {{syncState}}.</p>
+    <uib-progressbar type="{{syncDisplayType()}}" value="localDocCount" max="masterDocCount">{{localDocCount}} / {{masterDocCount}}</uib-progressbar>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <p class="text-center">Your local database contains {{localDocCount}} documents.</p>
+  </div>
+  <div class="col-sm-6">
+    <p class="text-center">The REIMS Master database currently contains {{masterDocCount}} documents.</p>    
   </div>
 </div>

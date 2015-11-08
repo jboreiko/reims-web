@@ -41,6 +41,7 @@ reimsServices.service('EyeglassRecords', ['pouchDB', '$rootScope', function(pouc
     
     return {
 	localInfo : function() { return localDB.info() },
+	remoteInfo : function() { return remoteDB.info() },	
 	localAllDocs : function(opts) { return localDB.allDocs(opts) }
     }
 }]);
