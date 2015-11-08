@@ -1,92 +1,102 @@
-<div class="col-sm-6">
-<form novalidate class="form-horizontal">
-  <div class="form-group">
-    <label for="sku" class="col-sm-2 control-label">SKU</label>
-    <div class="col-sm-10"><input class="form-control" id="sku" placeholder="SKU" ng-model="searchTerms.sku" required></div>
-  </div>
-  <div class="form-group">
-    <label for="lenseType" class="col-sm-2 control-label">Type</label>
-    <div class="col-sm-10">
-      <select class="form-control" id="lenseType" ng-model="searchTerms.lenseType">
-	<option value="single">Single</option>
-	<option value="bifocal">Bifocal</option>
-	<option value="reader">Reader</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="gender" class="col-sm-2 control-label">Gender</label>
-    <div class="col-sm-10">
-      <select class="form-control" id="gender" ng-model="searchTerms.gender">
-	<option value="M">Male</option>
-	<option value="F">Female</option>
-	<option value="U">Unisex</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="size" class="col-sm-2 control-label">Size</label>
-    <div class="col-sm-10">
-      <select class="form-control" id="size" ng-model="searchTerms.size">
-	<option value="small">Small</option>
-	<option value="medium">Medium</option>
-	<option value="large">Large</option>
-	<option value="child">Child</option>	
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="tint" class="col-sm-2 control-label">Tint</label>
-    <div class="col-sm-10">
-      <select class="form-control" id="tint" ng-model="searchTerms.tint">
-	<option value="none">None</option>
-	<option value="dark">Dark</option>
-	<option value="light">Light</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="material" class="col-sm-2 control-label">Material</label>
-    <div class="col-sm-10">
-      <select class="form-control" id="material" ng-model="searchTerms.material">
-	<option value="M">Metal</option>
-	<option value="P">Plastic</option>
-      </select>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" ng-click="search(searchTerms)" class="btn btn-primary">Search Inventory</button>
-    </div>
-  </div>
-</form>
-</div>
-<div class="col-sm-6">
+<div class="col-sm-4">
   <div class="panel panel-default">
-    <div class="panel-heading">Exact Match Results</div>
+    <div class="panel-heading">Search Values</div>
+    <div class="panel-body">
+      <form novalidate class="form-horizontal">
+	<div class="form-group">
+	  <label for="sku" class="col-sm-2 control-label">SKU</label>
+	  <div class="col-sm-10"><input class="form-control" id="sku" placeholder="SKU" ng-model="searchTerms.sku" required></div>
+	</div>
+	<div class="form-group">
+	  <label for="lenseType" class="col-sm-2 control-label">Type</label>
+	  <div class="col-sm-10">
+	    <select class="form-control" id="lenseType" ng-model="searchTerms.type">
+	      <option value="S">Single</option>
+	      <option value="B">Bifocal</option>
+	      <option value="R">Reader</option>
+	    </select>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label for="gender" class="col-sm-2 control-label">Gender</label>
+	  <div class="col-sm-10">
+	    <select class="form-control" id="gender" ng-model="searchTerms.gender">
+	      <option value="M">Male</option>
+	      <option value="F">Female</option>
+	      <option value="U">Unisex</option>
+	    </select>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label for="size" class="col-sm-2 control-label">Size</label>
+	  <div class="col-sm-10">
+	    <select class="form-control" id="size" ng-model="searchTerms.size">
+	      <option value="S">Small</option>
+	      <option value="M">Medium</option>
+	      <option value="L">Large</option>
+	      <option value="C">Child</option>	
+	    </select>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label for="tint" class="col-sm-2 control-label">Tint</label>
+	  <div class="col-sm-10">
+	    <select class="form-control" id="tint" ng-model="searchTerms.tint">
+	      <option value="N">None</option>
+	      <option value="D">Dark</option>
+	      <option value="L">Light</option>
+	    </select>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <label for="material" class="col-sm-2 control-label">Material</label>
+	  <div class="col-sm-10">
+	    <select class="form-control" id="material" ng-model="searchTerms.material">
+	      <option value="M">Metal</option>
+	      <option value="P">Plastic</option>
+	    </select>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <div class="col-sm-offset-2 col-sm-10">
+	    <button type="submit" ng-click="search(searchTerms)" class="btn btn-primary">Full Search</button>
+	  </div>
+	</div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="col-sm-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">Quick Search Results</div>
     <div class="panel-body">{{searchTerms}}</div>
-    <table st-table="allResultRowsDisplayed" st-safe-src="allResultRows" class="table table-condensed table-striped">
+    <table class="table table-condensed table-striped">
       <thead>
 	<tr>
-	  <th st-sort="doc.sku">Sku</th>
-	  <th>Gender</th>	  
+	  <th>Sku</th>
+	  <th>Type</th>
+	  <th>Gender</th>
+	  <th>Size</th>
+	  <th>Tint</th>
 	  <th>Material</th>
+	  <th>Actions</th>
 	</tr>
       </thead>
       <tbody>
-	<tr ng-repeat="result in allResultRowsDisplayed | quickSearchFilter">
+	<tr ng-repeat="result in allResultRows | filter:{doc: searchTerms}">
 	  <td>{{result.doc.sku}}</td>
-	  <td>{{result.doc.gender}}</td>
- 	  <td>{{result.doc.material}}</td>
+	  <td>{{result.doc.type | eyeglassTypeFilter}}</td>
+	  <td>{{result.doc.gender | eyeglassGenderFilter}}</td>
+	  <td>{{result.doc.size | eyeglassSizeFilter}}</td>
+	  <td>{{result.doc.tint | eyeglassTintFilter}}</td>
+ 	  <td>{{result.doc.material | eyeglassMaterialFilter}}</td>
+	  <td>
+	    <button class="btn btn-primary" type="button" ng-click="dispense(result.id)">Dispense</button>
+	    <button class="btn btn-danger" type="button" ng-click="markAsMissing(result.id)">Missing</button>
+	  </td>
+	  
 	</tr>
       </tbody>
-      <tfoot>
-	<tr>
-	  <td colspan="5" class="text-center">
-	    <div st-pagination="" st-displayed-pages="9"></div>
-	  </td>
-	</tr>
-      </tfoot>
     </table>
   </div>
 </div>

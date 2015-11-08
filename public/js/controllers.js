@@ -11,8 +11,6 @@ reimsControllers.controller(
 		       
 		       EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
 			   $scope.allResultRows = results.rows
-			   $scope.allResultRowsDisplayed = [].concat($scope.allResultRows);
-			   console.log(results)
 		       }).catch(function(err) {
 			   console.log(err)
 		       });
@@ -22,8 +20,14 @@ reimsControllers.controller(
 			   $location.path("/results");
 		       };
 
-		       $scope.quickSearch = function(obj) {
-		       }
+		       $scope.dispense = function(id) {
+			   console.log("Dispensing", id)
+		       };
+
+		       $scope.markAsMissing = function(id) {
+			   console.log("Marking as missing", id)
+		       };
+
 		   }]);
 
 reimsControllers.controller(
