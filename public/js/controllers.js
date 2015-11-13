@@ -22,14 +22,14 @@ reimsControllers.controller(
 
 		       $scope.dispense = function(row) {
 			   console.log("Dispensing", row.id)
-			   $scope.open({"name" : "dispense", "row" : row});
+			   $scope.openModal({"name" : "dispense", "row" : row});
 		       };
 
-		       $scope.markAsMissing = function(id) {
-			   console.log("Marking as missing", id)
-		       };
+		       $scope.markAsMissing = function(row) {
+			   console.log("Marking as missing", row.id)
+			   $scope.openModal({"name" : "mark as missing", "row" : row});					       };
 
-		       $scope.open = function (action) {
+		       $scope.openModal = function (action) {
 			   var modalInstance = $uibModal.open({
 			       animation: true,
 			       templateUrl: 'partials/resultActionModal.html',
@@ -39,8 +39,14 @@ reimsControllers.controller(
 				       return action
 				   }
 			       }
-			   })};
-		       
+			   })
+			   modalInstance.result.then(function (result) {
+			       console.log("Modal accepted, taking action")
+			   }, function() {
+			       console.log("Modal rejected, no action taken")
+			   });
+
+		       };
 		   }]);
 
 reimsControllers.controller(

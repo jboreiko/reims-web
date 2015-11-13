@@ -1,6 +1,14 @@
-TODOs
+Product TODOs
 -----
 - Update to use require.js
 - Update to use grunt
+  - AWS auto deployment
 - Update to use karma + phantomjs
 - Update to use protractor
+
+Tasks
+-----
+- Make modal actions actually work
+- Add additional prescription search terms (might need some design work)
+- Work on input methodology (needs design / implementation)
+- Dual search capability when matches not found
