@@ -29,8 +29,12 @@ node_modules
 # Emacs temp files
 *~
 
-# Bower 
-public/bower_components
-
 # Data
 *data/*
+
+# Typescript
+.tscache
+build
+
+# Browserify
+public/bundle.js

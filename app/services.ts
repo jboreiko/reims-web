@@ -32,10 +32,10 @@ reimsServices.service('EyeglassRecords', ['pouchDB', '$rootScope', function(pouc
     }).on('error', function (err) {
 	// totally unhandled error (shouldn't happen)
 	console.log("Replicaiton catastrophically failed", err)
-	$rootScope.$broadcast("sync:failure", info)	
+	$rootScope.$broadcast("sync:failure", err)	
     }).on('complete', function(err) {
 	console.log("The sync has ended")
-	$rootScope.$broadcast("sync:down", info)
+	$rootScope.$broadcast("sync:down", err)
     });
 
     
