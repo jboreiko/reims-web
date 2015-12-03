@@ -17,15 +17,23 @@ module.exports = function(grunt) {
 		src: ["build"],
 		dest: "public/bundle.js",
 	    }
+	},
+	copy: {
+	    default : {
+		files: [
+		    {expand: true, flatten: true, src: ['node_modules/bootstrap/dist/css/bootstrap.css'], dest: 'public/css'}]
+	    }
 	}
     });
     
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask("default", [
 	"ts",
-	"browserify"
+	"browserify",
+	"copy"
     ]);
 };
