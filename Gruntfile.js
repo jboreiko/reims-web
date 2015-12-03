@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 	},
 	browserify: {
 	    default : {
-		src: ["build"],
+		src: ["app/main.js"],
 		dest: "public/bundle.js",
 	    }
 	},
