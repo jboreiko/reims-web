@@ -1,8 +1,10 @@
 Product TODOs
 -----
-- Update to use require.js
-- Update to use grunt
-  - AWS auto deployment
+- Update to use injector.js
+- Update to use uglyify
+- Reimplement bower solution
+- Remover browserify + addition npm modules
+- AWS auto deployment
 - Update to use karma + phantomjs
 - Update to use protractor
 
