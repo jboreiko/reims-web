@@ -5,9 +5,12 @@
   "main": "server.js",
   "dependencies": {
     "angular": "^1.4.8",
+    "angular-bootstrap": "^0.12.2",
+    "angular-pouchdb": "^4.0.0",
     "angular-route": "^1.4.8",
     "bootstrap": "^3.3.6",
     "express": "^4.13.3",
+    "jquery": "^2.1.4",
     "pouchdb": "^5.0.0",
     "typescript": "^1.6.2"
   },
@@ -18,7 +21,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-ts": "^5.2.0",
     "jasmine-node": "^1.14.5",
-    "karma": "^0.13.14"
+    "karma": "^0.13.14",
+    "tsify": "^0.13.1"
   },
   "scripts": {
     "prestart": "npm install --production",

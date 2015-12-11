@@ -14,8 +14,11 @@ module.exports = function(grunt) {
 	},
 	browserify: {
 	    default : {
-		src: ["app/index.js"],
+		src: ["app/*.ts"],
 		dest: "public/bundle.js",
+	    },
+	    options : {
+		plugin: ['tsify']
 	    }
 	},
 	copy: {
@@ -32,7 +35,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask("default", [
-	"ts",
 	"browserify",
 	"copy"
     ]);

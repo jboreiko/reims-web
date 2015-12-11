@@ -1,8 +1,6 @@
 'use strict';
 
-/* Services */
-
-var reimsServices = angular.module('reimsServices', ['pouchdb']);
+export var reimsServices = angular.module('reimsServices', ['pouchdb']);
 
 reimsServices.service('EyeglassRecords', ['pouchDB', '$rootScope', function(pouchDB, $rootScope) {
     var database_name = "eyeglasses"
