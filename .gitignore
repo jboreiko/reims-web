@@ -34,7 +34,7 @@ node_modules
 
 # Typescript
 .tscache
-build
+public/build
 
-# Browserify
-public/bundle.js
+# Bower
+public/bower_components

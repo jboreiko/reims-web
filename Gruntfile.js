@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 	ts: {
 	    default : {
 		src: ["app/*.ts"],
-		outDir: "build",
+		outDir: "public/build",
 	    },
 	    options : {
 		target: "es5",
@@ -12,13 +12,15 @@ module.exports = function(grunt) {
 		declaration: true
 	    }
 	},
-	browserify: {
-	    default : {
-		src: ["app/*.ts"],
-		dest: "public/bundle.js",
-	    },
+	injector: {
 	    options : {
-		plugin: ['tsify']
+		addRootSlash: false,
+		ignorePath: "public"
+	    },
+	    default : {
+		files: {
+		    'public/index.html' : ['public/build/*.js', 'bower.json']
+		}
 	    }
 	},
 	copy: {
@@ -33,9 +35,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-injector');
 
     grunt.registerTask("default", [
-	"browserify",
-	"copy"
+	"ts",
+	"copy",
+	"injector"
     ]);
 };

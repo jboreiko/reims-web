@@ -1,21 +1,6 @@
 'use strict';
 
-require('angular');
-require('angular-route');
-require('angular-pouchdb');
-require('angular-bootstrap');
-require('pouchdb');
-require('bootstrap');
-require('jquery');
-
-// Local 
-require('../build/app.js');
-require('../build/controllers.js');
-require('../build/services.js');
-require('../build/filters.js');
-
-
-export var reimsApp = angular.module('reimsApp', [
+var reimsApp = angular.module('reimsApp', [
     'ngRoute',
     'reimsControllers',
     'reimsServices',
