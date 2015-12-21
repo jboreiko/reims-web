@@ -1,6 +1,7 @@
+/// <reference path='_all.ts' />
 'use strict';
 
-export var reimsControllers = angular.module('reimsControllers', []);
+var reimsControllers = angular.module('reimsControllers', []);
 
 reimsControllers.controller(
     'SearchCtrl', ['$scope', '$location', '$uibModal', 'EyeglassRecords',

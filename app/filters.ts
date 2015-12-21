@@ -1,6 +1,5 @@
+/// <reference path='_all.ts' />
 'use strict';
-
-/* Filters.js */
 
 var reimsFilters = angular.module('reimsFilters', []);
 

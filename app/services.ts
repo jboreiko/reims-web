@@ -1,3 +1,4 @@
+/// <reference path='_all.ts' />
 'use strict';
 
 var reimsServices = angular.module('reimsServices', ['pouchdb']);

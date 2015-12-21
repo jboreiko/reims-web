@@ -19,14 +19,14 @@ module.exports = function(grunt) {
 	    },
 	    default : {
 		files: {
-		    'public/index.html' : ['public/build/*.js', 'bower.json']
+		    'public/index.html' : ['bower.json', 'public/build/*.js', 'public/css/*.css']
 		}
 	    }
 	},
 	copy: {
 	    default : {
 		files: [
-		    {expand: true, flatten: true, src: ['node_modules/bootstrap/dist/css/bootstrap.css'], dest: 'public/css'}]
+		    {expand: true, flatten: true, src: ['app/index.html'], dest: 'public'}]
 	    }
 	}
     });

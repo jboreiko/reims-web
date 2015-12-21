@@ -1,6 +1,5 @@
 Product TODOs
 -----
-- Update to use injector.js
 - Update to use uglyify
 - Reimplement bower solution
 - Remover browserify + addition npm modules
