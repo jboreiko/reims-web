@@ -1,7 +1,6 @@
 Product TODOs
 -----
 - Update to use uglyify
-- Reimplement bower solution
 - Remover browserify + addition npm modules
 - AWS auto deployment
 - Update to use karma + phantomjs
@@ -10,6 +9,6 @@ Product TODOs
 Tasks
 -----
 - Make modal actions actually work
-- Add additional prescription search terms (might need some design work)
+- Add additional prescription search terms + add to result table (might need some design work)
 - Work on input methodology (needs design / implementation)
 - Dual search capability when matches not found

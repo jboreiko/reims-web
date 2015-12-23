@@ -7,7 +7,7 @@ var reimsApp = angular.module('reimsApp', [
     'reimsServices',
     'reimsFilters',
     'ui.bootstrap'
-    // require('reimsControllers')
+    // require('reimsControllers') 
 ]);
 
 reimsApp.config(['$routeProvider', function($routeProvider) {

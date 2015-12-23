@@ -28,18 +28,28 @@ module.exports = function(grunt) {
 		files: [
 		    {expand: true, flatten: true, src: ['app/index.html'], dest: 'public'}]
 	    }
+	},
+	watch: {
+	    default: {
+		files: ['app/*.ts', 'app/*.html'],
+		tasks: ['build']
+	    }
 	}
     });
     
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-ts');
-    grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-injector');
 
-    grunt.registerTask("default", [
+    grunt.registerTask("build", [
 	"ts",
 	"copy",
 	"injector"
     ]);
+
+    grunt.registerTask("default", [
+	"watch"
+    ]);
+
 };
