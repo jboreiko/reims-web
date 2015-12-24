@@ -16,7 +16,7 @@ reimsControllers.controller(
 		       
 		       $scope.search = function(searchTerms) {
 			   console.log("Running a search with ", searchTerms);
-			   $location.path("/results");
+			   // $location.path("/results");
 		       };
 
 		       $scope.dispense = function(row) {
