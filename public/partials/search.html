@@ -136,6 +136,7 @@
 	    <div class="form-group">
 	      <div class="col-sm-offset-2 col-sm-10">
 		<button type="submit" ng-click="search(searchTerms)" class="btn btn-primary">Full Search</button>
+		<button type="submit" ng-click="import(searchTerms)" class="btn btn-info">Import</button>
 	      </div>
 	    </div>
 	  </div>
@@ -148,8 +149,12 @@
   <div class="col-sm-12">
     <div class="panel panel-default">
       <div class="panel-heading">Quick Search Results</div>
-      <div class="panel-body">{{searchTerms}}</div>
-      <table class="table table-condensed table-striped">
+      <div class="panel-body">
+	<button class="btn btn-primary" type="button" ng-click="dispense(result)">Dispense</button>
+	<button class="btn btn-info" type="button" ng-click="update(result)">Update</button>
+	<button class="btn btn-danger" type="button" ng-click="markAsMissing(result)">Missing</button>
+      </div>
+      <table class="table table-condensed table-striped table-hover">
 	<thead>
 	  <tr>
 	    <th>Sku</th>
@@ -166,11 +171,10 @@
 	    <th>OS Cylinder</th>
 	    <th>OS Axis</th>
 	    <th>OS Add</th>
-	    <th>Actions</th>
 	  </tr>
 	</thead>
 	<tbody>
-	  <tr ng-repeat="result in allResultRows | filter:{doc: searchTerms}">
+	  <tr ng-repeat="result in allResultRows | filter:{doc: searchTerms}" ng-click="selectResult(result.doc.sku)" ng-class="{active: result.doc.sku === selectedResult}">
 	    <td>{{result.doc.sku}}</td>
 	    <td>{{result.doc.type | eyeglassTypeFilter}}</td>
 	    <td>{{result.doc.gender | eyeglassGenderFilter}}</td>
@@ -185,10 +189,6 @@
 	    <td>{{result.doc.oscylinder}}</td>
 	    <td>{{result.doc.osaxis}}</td>
 	    <td>{{result.doc.osadd}}</td>
-	    <td>
-	      <button class="btn btn-primary" type="button" ng-click="dispense(result)">Dispense</button>
-	      <button class="btn btn-danger" type="button" ng-click="markAsMissing(result)">Missing</button>
-	    </td>
 	  </tr>
 	</tbody>
       </table>

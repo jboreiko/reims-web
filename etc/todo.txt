@@ -1,7 +1,6 @@
 Product TODOs
 -----
 - Update to use uglyify
-- Remover browserify + addition npm modules
 - AWS auto deployment
 - Update to use karma + phantomjs
 - Update to use protractor
@@ -9,6 +8,6 @@ Product TODOs
 Tasks
 -----
 - Make modal actions actually work
-- Add additional prescription search terms + add to result table (might need some design work)
+- Make update modal
 - Work on input methodology (needs design / implementation)
 - Dual search capability when matches not found
