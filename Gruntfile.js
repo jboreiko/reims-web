@@ -12,6 +12,14 @@ module.exports = function(grunt) {
 		declaration: true
 	    }
 	},
+	tslint: {
+	    options : {
+		configuration: "etc/conf/dev_tslint.json"
+	    },
+	    default : {
+		src: ["app/*.ts"]
+	    }
+	},
 	injector: {
 	    options : {
 		addRootSlash: false,
@@ -41,8 +49,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-injector');
+    grunt.loadNpmTasks('grunt-tslint');
 
     grunt.registerTask("build", [
+	"tslint",
 	"ts",
 	"copy",
 	"injector"

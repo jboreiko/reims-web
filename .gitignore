@@ -30,7 +30,7 @@ node_modules
 *~
 
 # Data
-*data/*
+etc/data/*
 
 # Typescript
 .tscache
