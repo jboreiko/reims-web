@@ -1,36 +1,36 @@
-/// <reference path='_all.ts' />
-'use strict';
+/// <reference path="_all.ts" />
+"use strict";
 
-var reimsApp = angular.module('reimsApp', [
-    'ngRoute',
-    'reimsControllers',
-    'reimsServices',
-    'reimsFilters',
-    'ui.bootstrap'
-    // require('reimsControllers') 
+var reimsApp = angular.module("reimsApp", [
+    "ngRoute",
+    "reimsControllers",
+    "reimsServices",
+    "reimsFilters",
+    "ui.bootstrap"
+    // require("reimsControllers") 
 ]);
 
-reimsApp.config(['$routeProvider', function($routeProvider) {
+reimsApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider.
-	when('/search', {
-	    templateUrl: 'partials/search.html',
-	    controller: 'SearchCtrl'
+	when("/search", {
+	    templateUrl: "partials/search.html",
+	    controller: "SearchCtrl"
 	}).
-	when('/results', {
-	    templateUrl: 'partials/results.html',
+	when("/results", {
+	    templateUrl: "partials/results.html",
 	}).
-	when('/help', {
-	    templateUrl: 'partials/help.html'
+	when("/help", {
+	    templateUrl: "partials/help.html"
 	}).
-	when('/home', {
-	    templateUrl: 'partials/home.html',
-	    controller: 'HomeCtrl'
+	when("/home", {
+	    templateUrl: "partials/home.html",
+	    controller: "HomeCtrl"
 	}).
-	when('/sync', {
-	    templateUrl: 'partials/sync.html',
-	    controller: 'SyncCtrl'
+	when("/sync", {
+	    templateUrl: "partials/sync.html",
+	    controller: "SyncCtrl"
 	}).
 	otherwise({
-	    redirectTo: '/home'
+	    redirectTo: "/home"
 	});
 }]);
