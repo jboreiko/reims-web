@@ -6,7 +6,10 @@ var reimsDirectives = angular.module("reimsDirectives", []);
 reimsDirectives.directive("reimsInputForm", [function() {
     return {
 	restrict: "E",
-	templateUrl: "partials/inputForm.html"
+	templateUrl: "partials/inputForm.html",
+	scope: {
+	    onSubmit: "="
+	}
     };
 }]);
 

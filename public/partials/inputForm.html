@@ -129,9 +129,8 @@
   </div>
   <div class="row">
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-	<button type="submit" ng-click="search(searchTerms)" class="btn btn-primary">Full Search</button>
-	<button type="submit" ng-click="import(searchTerms)" class="btn btn-info">Import</button>
+      <div class="col-sm-offset-10 col-sm-2">
+	<button type="submit" ng-click="onSubmit.func(searchTerms)" class="btn btn-primary">{{onSubmit.name}}</button>
       </div>
     </div>
   </div>

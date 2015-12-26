@@ -35,6 +35,13 @@ reimsControllers.controller(
 			   $scope.selectedResult = id;
 		       };
 
+		       $scope.inputAction = {
+			   name: "Full Search",
+			   func: function(terms) {
+			       console.log(terms);
+			   }
+		       };
+
 		       $scope.openModal = function (action) {
 			   var modalInstance = $uibModal.open({
 			       animation: true,
@@ -58,7 +65,12 @@ reimsControllers.controller(
 reimsControllers.controller(
     "AddCtrl", ["$scope",
 		function($scope) {
-		    $scope.test = true;
+		    $scope.inputAction = {
+			name: "Add",
+			func: function(terms) {
+			    console.log(terms);
+			}
+		    };
 		}]);
 
 reimsControllers.controller(
