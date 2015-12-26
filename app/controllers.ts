@@ -26,6 +26,15 @@ reimsControllers.controller(
 			   console.log("Marking as missing", row.id);
 			   $scope.openModal({"name" : "mark as missing", "row" : row});					       };
 
+		       $scope.update = function(row) {
+			   console.log("Update row", row.id);
+		       };
+
+		       $scope.selectResult = function(id) {
+			   console.log("Selecting", id);
+			   $scope.selectedResult = id;
+		       };
+
 		       $scope.openModal = function (action) {
 			   var modalInstance = $uibModal.open({
 			       animation: true,
