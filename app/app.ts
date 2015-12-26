@@ -17,6 +17,10 @@ reimsApp.config(["$routeProvider", function($routeProvider) {
 	    templateUrl: "partials/search.html",
 	    controller: "SearchCtrl"
 	}).
+	when("/add", {
+	    templateUrl: "partials/add.html",
+	    controller: "AddCtrl"
+	}).
 	when("/help", {
 	    templateUrl: "partials/help.html"
 	}).

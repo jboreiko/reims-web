@@ -56,6 +56,12 @@ reimsControllers.controller(
 		   }]);
 
 reimsControllers.controller(
+    "AddCtrl", ["$scope",
+		function($scope) {
+		    $scope.test = true;
+		}]);
+
+reimsControllers.controller(
     "resultActionModalCtrl", ["$scope", "$uibModalInstance", "action",
 			      function($scope, $uibModalInstance, action) {
 				  $scope.action = action;
