@@ -9,3 +9,11 @@ reimsDirectives.directive("reimsInputForm", [function() {
 	templateUrl: "partials/inputForm.html"
     };
 }]);
+
+reimsDirectives.directive("reimsNavBar", [function() {
+    return {
+	restrict: "E",
+	controller: "NavBarCtrl",
+	templateUrl: "partials/navBar.html"
+    };
+}]);
