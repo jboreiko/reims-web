@@ -7,6 +7,7 @@ var reimsApp = angular.module("reimsApp", [
     "reimsServices",
     "reimsFilters",
     "reimsDirectives",
+    "reimsInventoryStatus",
     "ui.bootstrap"
     // require("reimsControllers") 
 ]);

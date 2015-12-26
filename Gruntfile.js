@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
 	ts: {
 	    default : {
-		src: ["app/*.ts"],
+		src: ["app/**/*.ts", "!app/libs/**/*"],
 		outDir: "public/build",
 	    },
 	    options : {
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		configuration: "etc/conf/dev_tslint.json"
 	    },
 	    default : {
-		src: ["app/*.ts"]
+		src: ["app/**/*.ts", "!app/libs/**/*"]
 	    }
 	},
 	injector: {
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 	    },
 	    default : {
 		files: {
-		    'public/index.html' : ['bower.json', 'public/build/*.js', 'public/css/*.css', 'public/bower_components/bootstrap/dist/css/bootstrap.css']
+		    'public/index.html' : ['bower.json', 'public/build/**/*.js', 'public/css/*.css', 'public/bower_components/bootstrap/dist/css/bootstrap.css']
 		}
 	    }
 	},
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 	},
 	watch: {
 	    default: {
-		files: ['app/*.ts', 'app/*.html'],
+		files: ['app/**/*.ts', 'app/*.html', "!app/libs/**/*"],
 		tasks: ['build']
 	    }
 	}
