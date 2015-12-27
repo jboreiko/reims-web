@@ -4,8 +4,8 @@
 var reimsControllers = angular.module("reimsControllers", []);
 
 reimsControllers.controller(
-    "SearchCtrl", ["$scope", "$location", "$uibModal", "EyeglassRecords",
-		   function($scope, $location, $uibModal, EyeglassRecords) {
+    "SearchCtrl", ["$scope", "$location", "$uibModal", "$filter", "EyeglassRecords",
+		   function($scope, $location, $uibModal, $filter, EyeglassRecords) {
 		       $scope.searchTerms = {};
 		       EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
 			   $scope.allResultRows = results.rows;
@@ -35,7 +35,8 @@ reimsControllers.controller(
 			   $scope.selectedResult = id;
 		       };
 
-		       $scope.inputAction = {
+		       $scope.fullSearchResults = [{doc: {sku: "test"}}];
+		       $scope.onSubmit = {
 			   name: "Full Search",
 			   func: function(terms) {
 			       console.log(terms);
@@ -74,7 +75,8 @@ reimsControllers.controller(
 reimsControllers.controller(
     "AddCtrl", ["$scope",
 		function($scope) {
-		    $scope.inputAction = {
+
+		    $scope.onSubmit = {
 			name: "Add",
 			func: function(terms) {
 			    console.log(terms);

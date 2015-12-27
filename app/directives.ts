@@ -7,9 +7,6 @@ reimsDirectives.directive("reimsInputForm", [function() {
     return {
 	restrict: "E",
 	templateUrl: "partials/inputForm.html",
-	scope: {
-	    onSubmit: "="
-	}
     };
 }]);
 

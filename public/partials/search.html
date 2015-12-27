@@ -3,7 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">Search Values</div>
       <div class="panel-body">
-	<reims-input-form on-submit="inputAction"></reims-input-form>
+	<reims-input-form></reims-input-form>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@
 	</thead>
 	<tbody ng-hide="displayFull">
 	  <tr ng-repeat="result in allResultRows | filter:{doc: searchTerms}" ng-click="selectResult(result.doc.sku)" ng-class="{active: result.doc.sku === selectedResult}">
-	    <th>1</th>
+	    <td>1</td>
 	    <td>{{result.doc.sku}}</td>
 	    <td>{{result.doc.type | eyeglassTypeFilter}}</td>
 	    <td>{{result.doc.gender | eyeglassGenderFilter}}</td>
@@ -73,8 +73,9 @@
 	  </tr>
 	</tbody>
 	<tbody ng-hide="!displayFull">
-	  <tr>
-	    <td>Hey</td><td>Ho</td>
+	  <tr ng-repeat="result in fullSearchResults">
+	    <td>{{result.doc.sku}}</td>
+	    <td>foo</td>
 	  </tr>
 	</tbody>
       </table>
