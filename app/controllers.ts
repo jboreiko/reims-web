@@ -42,6 +42,15 @@ reimsControllers.controller(
 			   }
 		       };
 
+		       $scope.displayFull = false;
+		       $scope.showFull = function() {
+			   $scope.displayFull = true;
+		       };
+
+		       $scope.showQuick = function() {
+			   $scope.displayFull = false;
+		       };
+
 		       $scope.openModal = function (action) {
 			   var modalInstance = $uibModal.open({
 			       animation: true,
