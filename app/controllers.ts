@@ -39,7 +39,7 @@ reimsControllers.controller(
 		       $scope.onSubmit = {
 			   name: "Full Search",
 			   func: function(terms) {
-			       console.log(terms);
+			       $scope.fullSearchResults = [{doc: {sku: "success"}}];
 			   }
 		       };
 
