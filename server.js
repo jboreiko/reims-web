@@ -1,5 +1,8 @@
 var express = require('express');
+var morgan = require('morgan'); // used for logging of http request
 var app = express();
+
+app.use(morgan('combined'));
 
 app.use('/', express.static(__dirname + '/public'));
 
