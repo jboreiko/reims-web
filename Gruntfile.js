@@ -1,4 +1,7 @@
 module.exports = function(grunt) {
+
+    require('load-grunt-tasks')(grunt);
+    
     grunt.initConfig({
 	ts: {
 	    default : {
@@ -42,15 +45,40 @@ module.exports = function(grunt) {
 		files: ['app/**/*.ts', 'app/*.html', "!app/libs/**/*"],
 		tasks: ['build']
 	    }
+	},
+	compress: {
+	    default: {
+		options: {
+		    archive: 'reims-web.zip'
+		},
+		files: [
+		    {
+			src: ['public/**'],
+			dest: 'dist'
+		    }
+		]
+	    }
+	},
+	'github-release': {
+	    options: {
+		repository: 'jboreiko/reims-web',
+		auth: {
+		    user: 'jboreiko',
+		    password: process.env.GITHUB_TOKEN
+		}
+	    },
+	    files: {
+		src: ['dist/reims-web.zip']
+	    }
 	}
     });
-    
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-ts');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-injector');
-    grunt.loadNpmTasks('grunt-tslint');
 
+    grunt.registerTask("release", [
+	"build",
+	"compress",
+	"github-release"
+    ]);
+    
     grunt.registerTask("build", [
 	"tslint",
 	"ts",
