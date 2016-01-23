@@ -49,19 +49,24 @@ module.exports = function(grunt) {
 	mkdir: {
 	    dist: {
 		options: {
-		    create: ['dist']
+		    create: ['etc/dist']
 		}
 	    }
 	},
 	compress: {
 	    default: {
 		options: {
-		    archive: 'dist/reims-web.zip'
+		    archive: 'etc/dist/reims-web.zip'
 		},
 		files: [
 		    {
-			src: ['**/*'],
-			dest: 'dist'
+			src: [
+			    'public/**',
+			    '!public/bower_components/**',
+			    'package.json',
+			    'bower.json',
+			    'server.js'
+			     ],
 		    }
 		]
 	    }
@@ -75,7 +80,7 @@ module.exports = function(grunt) {
 		}
 	    },
 	    files: {
-		src: ['dist/reims-web.zip']
+		src: ['etc/dist/reims-web.zip']
 	    }
 	}
     });

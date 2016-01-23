@@ -43,4 +43,4 @@ public/bower_components
 public/index.html
 
 # Release artifact
-dist/*
+etc/dist/*
