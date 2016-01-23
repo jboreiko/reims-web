@@ -11,3 +11,4 @@ Tasks
 - Make update modal
 - Work on input methodology (needs design / implementation)
 - Dual search capability when matches not found
+- Add clean up task for grunt

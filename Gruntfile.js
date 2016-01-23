@@ -45,8 +45,39 @@ module.exports = function(grunt) {
 		files: ['app/**/*.ts', 'app/*.html', "!app/libs/**/*"],
 		tasks: ['build']
 	    }
+	},
+	compress: {
+	    default: {
+		options: {
+		    archive: 'reims-web.zip'
+		},
+		files: [
+		    {
+			src: ['public/**'],
+			dest: 'dist'
+		    }
+		]
+	    }
+	},
+	'github-release': {
+	    options: {
+		repository: 'jboreiko/reims-web',
+		auth: {
+		    user: 'jboreiko',
+		    password: process.env.GITHUB_TOKEN
+		}
+	    },
+	    files: {
+		src: ['dist/reims-web.zip']
+	    }
 	}
     });
+
+    grunt.registerTask("release", [
+	"build",
+	"compress",
+	"github-release"
+    ]);
     
     grunt.registerTask("build", [
 	"tslint",

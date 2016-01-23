@@ -41,3 +41,6 @@ public/bower_components
 
 # Injected index
 public/index.html
+
+# Release artifact
+dist/*
