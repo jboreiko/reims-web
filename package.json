@@ -14,6 +14,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-github-releaser": "^0.1.18",
     "grunt-injector": "^0.6.1",
+    "grunt-mkdir": "^0.1.2",
     "grunt-ts": "^5.2.0",
     "grunt-tslint": "^3.0.1",
     "jasmine-node": "^1.14.5",

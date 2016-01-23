@@ -46,10 +46,17 @@ module.exports = function(grunt) {
 		tasks: ['build']
 	    }
 	},
+	mkdir: {
+	    dist: {
+		options: {
+		    create: ['dist']
+		}
+	    }
+	},
 	compress: {
 	    default: {
 		options: {
-		    archive: 'reims-web.zip'
+		    archive: 'dist/reims-web.zip'
 		},
 		files: [
 		    {
@@ -75,6 +82,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("release", [
 	"build",
+	"mkdir:dist",
 	"compress",
 	"github-release"
     ]);
