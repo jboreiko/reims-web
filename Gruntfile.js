@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 		},
 		files: [
 		    {
-			src: ['public/**'],
+			src: ['**/*'],
 			dest: 'dist'
 		    }
 		]
