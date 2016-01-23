@@ -12,7 +12,11 @@ npm install
 bower install
 
 # Run
+install git
+install node
+install grunt-cli
 npm start
 
 # Wireframes
 http://framebox.org/vxXl
+
