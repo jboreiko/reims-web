@@ -16,7 +16,8 @@
     "grunt-ts": "^5.2.0",
     "grunt-tslint": "^3.0.1",
     "jasmine-node": "^1.14.5",
-    "karma": "^0.13.14"
+    "karma": "^0.13.14",
+    "load-grunt-tasks": "^3.4.0"
   },
   "scripts": {
     "prestart": "npm install --production",

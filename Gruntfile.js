@@ -1,4 +1,7 @@
 module.exports = function(grunt) {
+
+    require('load-grunt-tasks')(grunt);
+    
     grunt.initConfig({
 	ts: {
 	    default : {
@@ -45,12 +48,6 @@ module.exports = function(grunt) {
 	}
     });
     
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-ts');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-injector');
-    grunt.loadNpmTasks('grunt-tslint');
-
     grunt.registerTask("build", [
 	"tslint",
 	"ts",
