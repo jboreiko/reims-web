@@ -63,6 +63,7 @@ module.exports = function(grunt) {
 			src: [
 			    'public/**',
 			    '!public/bower_components/**',
+			    '.bowerrc',
 			    'package.json',
 			    'bower.json',
 			    'server.js'
