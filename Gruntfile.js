@@ -66,7 +66,8 @@ module.exports = function(grunt) {
 			    '.bowerrc',
 			    'package.json',
 			    'bower.json',
-			    'server.js'
+			    'server.js',
+			    'etc/scripts/*'
 			     ],
 		    }
 		]
