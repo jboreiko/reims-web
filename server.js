@@ -8,9 +8,9 @@ var app = express();
 
 passport.use(new localStrategy (
     function(username, password, done) {
-	console.log("Username: " + username + " Password: " + password);
+	console.log("Login attempt by", username);
 	if (username === "test") {
-	    return done(null, {name: "jboreiko", id: "123"});
+	    return done(null, {username: "jboreiko", id: "123"});
 	} else {
 	    return done(null, false);
 	}
@@ -18,16 +18,18 @@ passport.use(new localStrategy (
 ));
 
 passport.serializeUser(function(user, cb) {
+    console.log("Serializing user", user);
     cb(null, user.id);
 });
 
 passport.deserializeUser(function(id, cb) {
-    cb(null, {name: "jboreiko", id: "123"});
+    console.log("Deserializing user from", id);
+    cb(null, {username: "jboreiko", id: "123"});
 });
 
 app.use(morgan('combined'));
-//app.use(require('cookie-parser'));
-//app.use(require('body-parser'));
+//app.use(require('cookie-parser')); // causes the whole server to freeze
+app.use(require('body-parser').urlencoded({ extended: true}));
 app.use(session({ secret: 'TODO changeme' }));
 
 app.use(passport.initialize());
@@ -37,14 +39,14 @@ app.get('/login', function(req, res, next) {
     res.sendFile(path.join(__dirname + '/public/login.html'));
 });
 
-app.post('/login',
-	 passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login'}));
+app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login'}));
 
 app.use('/', function(req, res, next) {
-    if (req.isAuthenticated() || req.isAuthenticated) {
+    if (req.user) {
+	console.log("Authenticated access by", req.user.username);
 	next();
     } else {
-	console.log("Pushing over to login");
+	console.log("Illegal access attempted, sending over to login");
 	res.redirect('/login');
     }
 });
