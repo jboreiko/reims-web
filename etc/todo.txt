@@ -12,3 +12,5 @@ Tasks
 - Work on input methodology (needs design / implementation)
 - Dual search capability when matches not found
 - Add clean up task for grunt
+- remove hard coded password
+- fix login page to be part of app

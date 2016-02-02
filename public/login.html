@@ -1,13 +1,35 @@
-<form action="/login" method="post">
-  <div>
-    <label>Username:</label>
-    <input type="text" name="username"/>
-  </div>
-  <div>
-    <label>Password:</label>
-    <input type="password" name="password"/>
-  </div>
-  <div>
-    <input type="submit" value="Log In"/>
-  </div>
-</form>
+<!doctype html>
+<html lang="en" ng-app="reimsApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="John Boreiko">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    
+    <title>REIMS Web</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+	<div class="col-sm-2 col-sm-offset-5">
+	  <form action="/login" method="post">
+	    <div class="form-group">
+	      <label for="username">Username</label>
+	      <input type="text" class="form-control" id="username" name="username" placeholder="username"/>
+	    </div>
+	    <div class="form-group">
+	      <label for="password">Password</label>
+	      <input type="password" class="form-control" id="password" name="password" placeholder="password"/>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Log In</button>
+	  </form>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
