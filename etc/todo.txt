@@ -14,3 +14,4 @@ Tasks
 - Add clean up task for grunt
 - remove hard coded password
 - fix login page to be part of app
+- add minification to make it load quickly

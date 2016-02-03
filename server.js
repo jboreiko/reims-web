@@ -46,7 +46,7 @@ app.use('/', function(req, res, next) {
     if (req.user) {
 	console.log("Authenticated access by", req.user.username);
 	next();
-    } else if (req.url.indexOf("bootstrap." > -1)) {
+    } else if (req.url.indexOf("bootstrap.") > -1) {
 	console.log("Loading bootstrap for the login page");
 	next();
     } else {
@@ -57,7 +57,8 @@ app.use('/', function(req, res, next) {
 
 app.use('/', express.static(__dirname + '/public'));
 
-var server = app.listen(3000, function() {
+// the first argument is the port
+var server = app.listen(process.argv[2], function() {
     var host = server.address().address;
     var port = server.address().port;
     
