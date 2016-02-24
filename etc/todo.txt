@@ -15,3 +15,13 @@ Tasks
 - remove hard coded password
 - fix login page to be part of app
 - add minification to make it load quickly
+
+Product ideas
+-------------
+- barcodes
+  - labeling
+- input pad?
+- glassing manufracturing
+  - automated machine (about 30 minutes a machine)
+  - mechanical device that grinds the lenses
+- metrics really important
