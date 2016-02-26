@@ -1,44 +1,56 @@
 /// <reference path="_all.ts" />
-"use strict";
 
-var reimsFilters = angular.module("reimsFilters", []);
+module reimsApp {
+    "use strict";
 
-reimsFilters.filter("eyeglassTypeFilter", [function() {
-    return function(input) {
-	if (input === "B") { return "Bifocal"; }
-	if (input === "S") { return "Single"; }
-	if (input === "R") { return "Reader"; }
+    interface StringFilter {
+	(input: string) : string;
+    }
+
+    var reimsFilters = angular.module("reimsFilters", [])
+	.filter("eyeglassTypeFilter", eyeglassType)
+	.filter("eyeglassGenderFilter", eyeglassGender)
+	.filter("eyeglassTintFilter", eyeglassTint)
+	.filter("eyeglassSizeFilter", eyeglassSize)
+	.filter("eyeglassMaterialFilter", eyeglassMaterial);
+
+    function eyeglassType(): StringFilter {
+	return function(input: string) {
+	    if (input === "B") { return "Bifocal"; }
+	    if (input === "S") { return "Single"; }
+	    if (input === "R") { return "Reader"; }
+	};
     };
-}]);
 
-reimsFilters.filter("eyeglassGenderFilter", [function() {
-    return function(input) {
-	if (input === "M") { return "Male"; }
-	if (input === "F") { return "Female"; }
-	if (input === "U") { return "Unisex"; }
+    function eyeglassGender(): StringFilter {
+	return function(input: string) {
+	    if (input === "M") { return "Male"; }
+	    if (input === "F") { return "Female"; }
+	    if (input === "U") { return "Unisex"; }
+	};
     };
-}]);
 
-reimsFilters.filter("eyeglassTintFilter", [function() {
-    return function(input) {
-	if (input === "N") { return "None"; }
-	if (input === "L") { return "Light"; }
-	if (input === "D") { return "Dark"; }
+    function eyeglassTint(): StringFilter {
+	return function(input: string) {
+	    if (input === "N") { return "None"; }
+	    if (input === "L") { return "Light"; }
+	    if (input === "D") { return "Dark"; }
+	};
     };
-}]);
 
-reimsFilters.filter("eyeglassSizeFilter", [function() {
-    return function(input) {
-	if (input === "C") { return "Child"; }
-	if (input === "S") { return "Small"; }
-	if (input === "M") { return "Medium"; }
-	if (input === "L") { return "Large"; }
+    function eyeglassSize(): StringFilter {
+	return function(input: string) {
+	    if (input === "C") { return "Child"; }
+	    if (input === "S") { return "Small"; }
+	    if (input === "M") { return "Medium"; }
+	    if (input === "L") { return "Large"; }
+	};
     };
-}]);
 
-reimsFilters.filter("eyeglassMaterialFilter", [function() {
-    return function(input) {
-	if (input === "M") { return "Metal"; }
-	if (input === "P") { return "Plastic"; }
+    function eyeglassMaterial(): StringFilter {
+	return function(input: string) {
+	    if (input === "M") { return "Metal"; }
+	    if (input === "P") { return "Plastic"; }
+	};
     };
-}]);
+}
