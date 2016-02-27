@@ -4,7 +4,7 @@ module reimsApp {
     "use strict";
     var reimsApp = angular.module("reimsApp", [
 	"ngRoute",
-	"reimsControllers",
+	"reimsApp.Controllers",
 	"reimsServices",
 	"reimsApp.Filters",
 	"reimsApp.Directives",

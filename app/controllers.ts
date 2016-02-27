@@ -1,8 +1,8 @@
 /// <reference path="_all.ts" />
-module reimsApp {
+module reimsApp.Controllers {
     "use strict";
 
-    var reimsControllers = angular.module("reimsControllers", []);
+    var reimsControllers = angular.module("reimsApp.Controllers", []);
 
     reimsControllers.controller(
 	"SearchCtrl", ["$scope", "$location", "$uibModal", "$filter", "EyeglassRecords",
@@ -54,16 +54,8 @@ module reimsApp {
 			   };
 
 			   $scope.openModal = function (action) {
-			       var modalInstance = $uibModal.open({
-				   animation: true,
-				   templateUrl: "partials/resultActionModal.html",
-				   controller: "ResultActionModalCtrl",
-				   resolve: {
-				       action: function() {
-					   return action;
-				       }
-				   }
-			       });
+			       var modalInstance = $uibModal.open(Modals.getResultActionModal(action));
+
 			       modalInstance.result.then(function (result) {
 				   console.log("Modal accepted, taking action");
 			       }, function() {
