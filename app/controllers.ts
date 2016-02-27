@@ -57,7 +57,7 @@ module reimsApp {
 			       var modalInstance = $uibModal.open({
 				   animation: true,
 				   templateUrl: "partials/resultActionModal.html",
-				   controller: "resultActionModalCtrl",
+				   controller: "ResultActionModalCtrl",
 				   resolve: {
 				       action: function() {
 					   return action;
@@ -72,20 +72,6 @@ module reimsApp {
 
 			   };
 		       }]);
-
-    reimsControllers.controller(
-	"resultActionModalCtrl", ["$scope", "$uibModalInstance", "action",
-				  function($scope, $uibModalInstance, action) {
-				      $scope.action = action;
-
-				      $scope.ok = function() {
-					  $uibModalInstance.close();
-				      };
-
-				      $scope.cancel = function() {
-					  $uibModalInstance.dismiss("cancel");
-				      };
-				  }]);
 
     reimsControllers.controller(
 	"SyncCtrl", ["$scope", "$rootScope", "EyeglassRecords",

@@ -12,7 +12,8 @@ module reimsApp {
 	"ui.bootstrap",
 	"reimsApp.NavBar",
 	"reimsApp.Home",
-	"reimsApp.Add"
+	"reimsApp.Add",
+	"reimsApp.Modals"
 	// require("reimsControllers") 
     ]);
 
