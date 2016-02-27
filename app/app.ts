@@ -7,7 +7,7 @@ module reimsApp {
 	"reimsControllers",
 	"reimsServices",
 	"reimsApp.Filters",
-	"reimsDirectives",
+	"reimsApp.Directives",
 	"reimsInventoryStatus",
 	"ui.bootstrap",
 	"reimsApp.Home",

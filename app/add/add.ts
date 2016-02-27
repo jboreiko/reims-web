@@ -3,13 +3,8 @@
 module reimsApp.Add {
     "use strict";
 
-    interface IOnSubmit {
-	name: string;
-	func(terms: string): void;
-    }
-
     interface IAddScope extends ng.IScope {
-	onSubmit: IOnSubmit;
+	onSubmit: Directives.IOnSubmit;
     }
 
     class AddController {
@@ -25,6 +20,6 @@ module reimsApp.Add {
 	}
     }
 
-    export var app = angular.module("reimsApp.Add", []);
+    var app = angular.module("reimsApp.Add", []);
     app.controller("AddCtrl", AddController);
 }

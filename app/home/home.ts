@@ -10,6 +10,6 @@ module reimsApp.Home {
 	}
     }
 
-    export var app = angular.module("reimsApp.Home", []);
+    var app = angular.module("reimsApp.Home", []);
     app.controller("HomeCtrl", HomeController);
 }
