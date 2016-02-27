@@ -9,7 +9,7 @@ module reimsApp.Add {
 
     class AddController {
 	public static $inject = ["$scope"];
-	constructor(private $scope: IAddScope) {
+	constructor (private $scope: IAddScope) {
 	    console.log("Add controller");
 	    $scope.onSubmit = {
 		name: "Add",

@@ -87,17 +87,6 @@ module reimsApp {
 				      };
 				  }]);
 
-
-    reimsControllers.controller(
-	"NavBarCtrl", ["$scope",
-		       function($scope) {
-			   $scope.isCollapsed = true;
-
-			   $scope.collapse = function() {
-			       $scope.isCollapsed = true;
-			   };
-		       }]);
-
     reimsControllers.controller(
 	"SyncCtrl", ["$scope", "$rootScope", "EyeglassRecords",
 		     function($scope, $rootScope, EyeglassRecords) {

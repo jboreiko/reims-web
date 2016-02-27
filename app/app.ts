@@ -10,6 +10,7 @@ module reimsApp {
 	"reimsApp.Directives",
 	"reimsInventoryStatus",
 	"ui.bootstrap",
+	"reimsApp.NavBar",
 	"reimsApp.Home",
 	"reimsApp.Add"
 	// require("reimsControllers") 

@@ -5,7 +5,7 @@ module reimsApp.Home {
 
     class HomeController {
 	public static $inject = ["$scope", "EyeglassRecords"];
-	constructor(private $scope: ng.IScope, private EyeglassRecords: any) {
+	constructor (private $scope: ng.IScope, private EyeglassRecords: any) {
 	    console.log("Home controller", EyeglassRecords);
 	}
     }
