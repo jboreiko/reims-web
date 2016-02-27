@@ -4,18 +4,16 @@ module reimsApp {
     "use strict";
     var reimsApp = angular.module("reimsApp", [
 	"ngRoute",
-	"reimsApp.Controllers",
-	"reimsServices",
+	"ui.bootstrap",
+	"reimsApp.Services",
 	"reimsApp.Filters",
 	"reimsApp.Directives",
-	"reimsInventoryStatus",
-	"ui.bootstrap",
 	"reimsApp.NavBar",
 	"reimsApp.Home",
 	"reimsApp.Search",
 	"reimsApp.Add",
+	"reimsApp.Sync",
 	"reimsApp.Modals"
-	// require("reimsControllers") 
     ]);
 
     reimsApp.config(["$routeProvider", function($routeProvider) {
@@ -38,7 +36,8 @@ module reimsApp {
 	    }).
 	    when("/sync", {
 		templateUrl: "partials/sync.html",
-		controller: "SyncCtrl"
+		controller: "SyncCtrl",
+		controllerAs: "Ctrl"
 	    }).
 	    otherwise({
 		redirectTo: "/home"
