@@ -1,18 +1,18 @@
 /// <reference path="_all.ts" />
 
-module reimsApp {
+module reimsApp.Filters {
     "use strict";
 
-    interface StringFilter {
-	(input: string) : string;
-    }
-
-    var reimsFilters = angular.module("reimsFilters", [])
+    export var app = angular.module("reimsApp.Filters", [])
 	.filter("eyeglassTypeFilter", eyeglassType)
 	.filter("eyeglassGenderFilter", eyeglassGender)
 	.filter("eyeglassTintFilter", eyeglassTint)
 	.filter("eyeglassSizeFilter", eyeglassSize)
 	.filter("eyeglassMaterialFilter", eyeglassMaterial);
+
+    interface StringFilter {
+	(input: string) : string;
+    }
 
     function eyeglassType(): StringFilter {
 	return function(input: string) {

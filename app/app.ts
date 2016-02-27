@@ -6,10 +6,12 @@ module reimsApp {
 	"ngRoute",
 	"reimsControllers",
 	"reimsServices",
-	"reimsFilters",
+	"reimsApp.Filters",
 	"reimsDirectives",
 	"reimsInventoryStatus",
-	"ui.bootstrap"
+	"ui.bootstrap",
+	"reimsApp.Home",
+	"reimsApp.Add"
 	// require("reimsControllers") 
     ]);
 

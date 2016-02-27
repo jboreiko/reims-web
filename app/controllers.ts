@@ -73,18 +73,6 @@ reimsControllers.controller(
 		   }]);
 
 reimsControllers.controller(
-    "AddCtrl", ["$scope",
-		function($scope) {
-
-		    $scope.onSubmit = {
-			name: "Add",
-			func: function(terms) {
-			    console.log(terms);
-			}
-		    };
-		}]);
-
-reimsControllers.controller(
     "resultActionModalCtrl", ["$scope", "$uibModalInstance", "action",
 			      function($scope, $uibModalInstance, action) {
 				  $scope.action = action;
@@ -98,11 +86,6 @@ reimsControllers.controller(
 				  };
 			      }]);
 
-reimsControllers.controller(
-    "HomeCtrl", ["$scope", "EyeglassRecords",
-		 function($scope, EyeglassRecords) {
-		     console.log("Home controller", EyeglassRecords);
-		 }]);
 
 reimsControllers.controller(
     "NavBarCtrl", ["$scope",
