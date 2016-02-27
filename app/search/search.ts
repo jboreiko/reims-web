@@ -49,21 +49,21 @@ module reimsApp.Search {
 
 	dispense(row: any): void {
 	    console.log("Dispensing", row.id);
-	    this.$scope.openModal({"name" : "dispense", "row" : row});
+	    this.openModal({"name" : "dispense", "row" : row});
 	};
 
 	markAsMissing(row: any): void {
 	    console.log("Marking as missing", row.id);
-	    this.$scope.openModal({"name" : "mark as missing", "row" : row});
+	    this.openModal({"name" : "mark as missing", "row" : row});
 	};
 
 	update(row: any): void {
 	    console.log("Update row", row.id);
 	};
 
-	selectResult(id: string): void {
-	    console.log("Selecting", id);
-	    this.$scope.selectedResult = id;
+	selectRow(row: any): void {
+	    console.log("Selecting", row.id);
+	    this.$scope.selectedRow = row;
 	};
 
 	showFull(): void {

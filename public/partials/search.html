@@ -26,9 +26,9 @@
 	  </div>
 	  <div class="col-sm-4">
 	    <div class="btn-group pull-right" role="group">
-	      <button class="btn btn-primary" type="button" ng-click="Ctrl.dispense(selectResult)">Dispense</button>
-	      <button class="btn btn-info" type="button" ng-click="Ctrl.update(selectResult)">Update</button>
-	      <button class="btn btn-danger" type="button" ng-click="Ctrl.markAsMissing(selectResult)">Missing</button>
+	      <button class="btn btn-primary" type="button" ng-click="Ctrl.dispense(selectedRow)">Dispense</button>
+	      <button class="btn btn-info" type="button" ng-click="Ctrl.update(selectedRow)">Update</button>
+	      <button class="btn btn-danger" type="button" ng-click="Ctrl.markAsMissing(selectedRow)">Missing</button>
 	    </div>
 	  </div>
 	</div>
@@ -54,7 +54,7 @@
 	  </tr>
 	</thead>
 	<tbody ng-hide="displayFull">
-	  <tr ng-repeat="result in allResultRows | filter:{doc: searchTerms}" ng-click="Ctrl.selectResult(result.doc.sku)" ng-class="{active: result.doc.sku === selectedResult}">
+	  <tr ng-repeat="result in allResultRows | filter:{doc: searchTerms}" ng-click="Ctrl.selectRow(result)" ng-class="{active: result.doc.sku === selectedRow.doc.sku}">
 	    <td>1</td>
 	    <td>{{result.doc.sku}}</td>
 	    <td>{{result.doc.type | eyeglassTypeFilter}}</td>
