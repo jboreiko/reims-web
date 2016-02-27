@@ -5,67 +5,6 @@ module reimsApp.Controllers {
     var reimsControllers = angular.module("reimsApp.Controllers", []);
 
     reimsControllers.controller(
-	"SearchCtrl", ["$scope", "$location", "$uibModal", "$filter", "EyeglassRecords",
-		       function($scope, $location, $uibModal, $filter, EyeglassRecords) {
-			   $scope.searchTerms = {};
-			   EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
-			       $scope.allResultRows = results.rows;
-			   }).catch(function(err) {
-			       console.log(err);
-			   });
-			   $scope.search = function(searchTerms) {
-			       console.log("Running a search with ", searchTerms);
-			       // $location.path("/results");
-			   };
-
-			   $scope.dispense = function(row) {
-			       console.log("Dispensing", row.id);
-			       $scope.openModal({"name" : "dispense", "row" : row});
-			   };
-
-			   $scope.markAsMissing = function(row) {
-			       console.log("Marking as missing", row.id);
-			       $scope.openModal({"name" : "mark as missing", "row" : row});					       };
-
-			   $scope.update = function(row) {
-			       console.log("Update row", row.id);
-			   };
-
-			   $scope.selectResult = function(id) {
-			       console.log("Selecting", id);
-			       $scope.selectedResult = id;
-			   };
-
-			   $scope.fullSearchResults = [{doc: {sku: "test"}}];
-			   $scope.onSubmit = {
-			       name: "Full Search",
-			       func: function(terms) {
-				   $scope.fullSearchResults = [{doc: {sku: "success"}}];
-			       }
-			   };
-
-			   $scope.displayFull = false;
-			   $scope.showFull = function() {
-			       $scope.displayFull = true;
-			   };
-
-			   $scope.showQuick = function() {
-			       $scope.displayFull = false;
-			   };
-
-			   $scope.openModal = function (action) {
-			       var modalInstance = $uibModal.open(Modals.getResultActionModal(action));
-
-			       modalInstance.result.then(function (result) {
-				   console.log("Modal accepted, taking action");
-			       }, function() {
-				   console.log("Modal rejected, no action taken");
-			       });
-
-			   };
-		       }]);
-
-    reimsControllers.controller(
 	"SyncCtrl", ["$scope", "$rootScope", "EyeglassRecords",
 		     function($scope, $rootScope, EyeglassRecords) {
 			 console.log("Sync controller");

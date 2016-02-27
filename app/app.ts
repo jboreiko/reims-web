@@ -12,6 +12,7 @@ module reimsApp {
 	"ui.bootstrap",
 	"reimsApp.NavBar",
 	"reimsApp.Home",
+	"reimsApp.Search",
 	"reimsApp.Add",
 	"reimsApp.Modals"
 	// require("reimsControllers") 
@@ -21,7 +22,8 @@ module reimsApp {
 	$routeProvider.
 	    when("/search", {
 		templateUrl: "partials/search.html",
-		controller: "SearchCtrl"
+		controller: "SearchCtrl",
+		controllerAs: "Ctrl"
 	    }).
 	    when("/add", {
 		templateUrl: "partials/add.html",
