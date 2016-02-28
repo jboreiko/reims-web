@@ -3,10 +3,6 @@
 module reimsApp.Search {
     "use strict";
 
-//    interface ISearchScope extends ng.IScope {
-//	onSubmit: Directives.IOnSubmit;
-//    }
-
     class SearchController {
 	public static $inject = ["$scope", "$uibModal", "$filter", "EyeglassRecords"];
 
@@ -34,27 +30,22 @@ module reimsApp.Search {
 	    };
 	}
 
-	openModal(action: any): void {
-	    var modalInstance = this.$uibModal.open(Modals.getResultActionModal(action));
-	    modalInstance.result.then(function (result) {
-		console.log("Modal accepted, taking action");
-	    }, function() {
-		console.log("Modal rejected, no action taken");
-	    });
-	};
-
 	search(searchTerms: any): void {
 	    console.log("Running a search with ", searchTerms);
 	};
 
 	dispense(row: any): void {
 	    console.log("Dispensing", row.id);
-	    this.openModal({"name" : "dispense", "row" : row});
+	    Modals.openModal(this.$uibModal, {"name" : "dispense", "rows" : [row], "success" : function() {
+		console.log("Success man");
+	    }});
 	};
 
 	markAsMissing(row: any): void {
 	    console.log("Marking as missing", row.id);
-	    this.openModal({"name" : "mark as missing", "row" : row});
+	    Modals.openModal(this.$uibModal, {"name" : "mark as missing", "rows" : [row], "success": function() {
+		console.log("Success for missing");
+	    }});
 	};
 
 	update(row: any): void {

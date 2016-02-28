@@ -2,7 +2,13 @@
   <h3 class="modal-title">Confirmation</h3>
 </div>
 <div class="modal-body">
-  <p>Would you like to {{Ctrl.action.name}} glasses: {{Ctrl.action.row.doc}}</p>
+  <p>Would you like to {{Ctrl.action.name}} glasses:</p>
+  <table class="table table-condensed table-striped table-hover">
+    <thead reims-result-header></thead>
+    <tbody>
+      <tr reims-result-row ng-repeat="result in Ctrl.action.rows"></tr>
+    </tbody>
+  </table>
 </div>
 <div class="modal-footer">
   <button class="btn btn-danger" type="button" ng-click="ok()">OK</button>
