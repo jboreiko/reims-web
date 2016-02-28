@@ -4,11 +4,10 @@ module reimsApp.Search {
     "use strict";
 
     class SearchController {
-	public static $inject = ["$scope", "$uibModal", "$filter", "EyeglassRecords"];
+	public static $inject = ["$scope", "$uibModal", "EyeglassRecords"];
 
 	constructor (private $scope: any,
 		     private $uibModal: ng.ui.bootstrap.IModalService,
-		     private $filter: any,
 		     private EyeglassRecords: any) {
 	    console.log("Search controller");
 
@@ -35,9 +34,9 @@ module reimsApp.Search {
 	};
 
 	dispense(row: any): void {
-	    console.log("Dispensing", row.id);
-	    Modals.openModal(this.$uibModal, {"name" : "dispense", "rows" : [row], "success" : function() {
-		console.log("Success man");
+	    console.log("Dispensing", row.id, this.EyeglassRecords);
+	    Modals.openModal(this.$uibModal, {"name" : "dispense", "rows" : [row], "success" : () => {
+		this.EyeglassRecords.updateDoc("doc");
 	    }});
 	};
 
