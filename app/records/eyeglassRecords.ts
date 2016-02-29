@@ -57,8 +57,14 @@ module reimsApp.EyeglassRecords {
 	    return this.localDB.allDocs(opts);
 	}
 
-	updateDoc(doc: any) {
-	    console.log("Updating", doc);
+	updateDocStatus(doc: any, status: string) {
+	    console.log("Updating status to ", status, doc);
+	    doc.status = status;
+	    this.localDB.put(doc).then(function(res) {
+		console.log(res);
+	    }).catch(function(err){
+		console.error(err);
+	    });
 	}
     };
 

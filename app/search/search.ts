@@ -35,16 +35,23 @@ module reimsApp.Search {
 
 	dispense(row: any): void {
 	    console.log("Dispensing", row.id, this.EyeglassRecords);
-	    Modals.openModal(this.$uibModal, {"name" : "dispense", "rows" : [row], "success" : () => {
-		this.EyeglassRecords.updateDoc("doc");
-	    }});
+	    var action: Modals.IModalAction = {"name" : "dispense",
+					       "rows" : [row],
+  					       "success" : () => {
+						   this.EyeglassRecords.updateDocStatus(row.doc, "dispense");
+					       }};
+	    Modals.openModal(this.$uibModal, action);
 	};
 
 	markAsMissing(row: any): void {
 	    console.log("Marking as missing", row.id);
-	    Modals.openModal(this.$uibModal, {"name" : "mark as missing", "rows" : [row], "success": function() {
-		console.log("Success for missing");
-	    }});
+	    var action: Modals.IModalAction = {"name" : "mark as missing",
+					       "rows" : [row],
+					       "success": () => {
+						   this.EyeglassRecords.updateDocStatus(row.doc, "missing");
+					       }};
+
+	    Modals.openModal(this.$uibModal, action);
 	};
 
 	update(row: any): void {

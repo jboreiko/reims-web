@@ -15,6 +15,7 @@ Tasks
 - remove hard coded password
 - fix login page to be part of app
 - add minification to make it load quickly
+- update pouchdb.d.ts file to match 5.0
 
 Product ideas
 -------------
