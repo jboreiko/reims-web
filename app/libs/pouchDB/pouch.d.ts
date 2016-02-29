@@ -228,3 +228,6 @@ declare module 'pouchdb' {
 // a filter view.
 //
 declare function emit(key: any, value: any);
+
+// CUSTOM ADDITION (do not delete)
+declare function emit(key: any);

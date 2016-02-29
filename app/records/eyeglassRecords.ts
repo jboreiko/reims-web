@@ -66,6 +66,43 @@ module reimsApp.EyeglassRecords {
 		console.error(err);
 	    });
 	}
+
+	getStatusHist() {
+	    // create a design doc
+	    var ddoc = {
+		_id: "_design/index",
+		views: {
+		    index: {
+			map: function mapFun(doc) {
+			    if (doc.status) {
+				emit(doc.status);
+			    } else {
+				emit("no status");
+			    }
+			}.toString(),
+			reduce: "_count"
+		    }
+		}
+	    };
+
+	    // save the design doc
+	    this.localDB.put(ddoc).catch(function (err) {
+		if (err.status !== 409) {
+		    throw err;
+		}
+		// ignore if doc already exists
+	    }).then(function() {
+		// find docs where title === "Lisa Says"
+	    }).then(function (result) {
+		// handle result
+	    }).catch(function (err) {
+		console.log(err);
+	    });
+	    return this.localDB.query("index", {
+		keys: ["dispensed", "missing", "filed"],
+		group: true
+	    });
+	}
     };
 
     var app = angular.module("reimsApp.EyeglassRecords", ["pouchdb"])

@@ -8,33 +8,24 @@ module reimsApp.Home {
 	constructor (private $scope: ng.IScope, private EyeglassRecords: any) {
 	    console.log("Home controller", EyeglassRecords);
 
-	    var data = [];
-	    EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
-		angular.forEach(results.rows, function(row) {
-		    // console.log(row);
-		    if (row.doc.status) {
-			if (data[row.doc.status]) {
-			    data[row.doc.status].val++;
-			} else {
-			    data[row.doc.status] = { val: 1 };
-			}
-		    } else if (data["no status"]) {
-			data["no status"].val++;
-		    } else {
-			data["no status"] = { val: 1 };
-		    }
-		});
-		console.log("This is the data", data);
+	    var hist = EyeglassRecords.getStatusHist();
+
+	    console.log("hist");
+
+	    EyeglassRecords.getStatusHist().then(function(results) {
 		var scale = new Plottable.Scales.Linear();
 		var colorScale = new Plottable.Scales.InterpolatedColor();
 		colorScale.range(["#BDCEF0", "#5279C7"]);
-		var data = [{ val: 1 }, { val: 2 }, { val: 3 },
-			    { val: 4 }, { val: 5 }, { val: 6 }];
+		//var data = [{ value: 1 }, { value: 2 }, { value: 3 },
+		//	    { value: 4 }, { value: 5 }, { value: 6 }];
+		var data = results.rows;
+
+		console.log(data);
 
 		var plot = new Plottable.Plots.Pie()
 		    .addDataset(new Plottable.Dataset(data))
-		    .sectorValue(function(d) { return d.val; }, scale)
-		    .attr("fill", function(d) { return d.val; }, colorScale)
+		    .sectorValue(function(d) { return d.value; }, scale)
+		    .attr("fill", function(d) { return d.value; }, colorScale)
 		    .renderTo("svg#example");
 
 		window.addEventListener("resize", function() {
