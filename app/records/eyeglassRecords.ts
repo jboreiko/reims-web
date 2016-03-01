@@ -3,7 +3,31 @@
 module reimsApp.EyeglassRecords {
     "use strict";
 
-    class EyeglassRecords {
+    export interface IEyeglassRecord {
+	sku: string;
+	type: string;
+	gender: string;
+	size: string;
+	tint: string;
+	material: string;
+	entrydate: string;
+	odsphere: number;
+	odcylinder: number;
+	odaxis: number;
+	odadd: number;
+	ossphere: number;
+	oscylinder: number;
+	osaxis: number;
+	osadd: number;
+	status?: string;
+    }
+
+    interface IEyeglassDoc extends IEyeglassRecord {
+	_id: string;
+	_rev: string;
+    }
+
+    export class EyeglassRecords {
 	public static $inject: string[] = ["pouchDB", "$rootScope"];
 	private localDB: any;
 	private remoteDB: any;
@@ -57,8 +81,17 @@ module reimsApp.EyeglassRecords {
 	    return this.localDB.allDocs(opts);
 	}
 
-	addDoc(terms: any) {
+	addRecord(terms: IEyeglassRecord): void {
 	    console.log(terms);
+
+	    terms.status = "unfiled";
+
+	    // input without caring about id
+	    this.localDB.post(terms).then(function(res) {
+		console.log(res);
+	    }).catch(function(err) {
+		console.error(err);
+	    });
 	}
 
 	updateDocStatus(doc: any, status: string) {

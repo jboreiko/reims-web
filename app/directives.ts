@@ -11,7 +11,7 @@ module reimsApp.Directives {
     /* Bit of a hack, but directly reference the following construction here */
     export interface IOnSubmit {
 	name: string;
-	func(terms: string): void;
+	func(valid: boolean, terms: any): void;
     }
 
     function inputForm(): ng.IDirective {
