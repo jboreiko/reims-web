@@ -7,7 +7,6 @@ Product TODOs
 
 Tasks
 -----
-- Make modal actions actually work
 - Make update modal
 - Work on input methodology (needs design / implementation)
 - Dual search capability when matches not found

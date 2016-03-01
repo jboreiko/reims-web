@@ -8,13 +8,13 @@ module reimsApp.Add {
     }
 
     class AddController {
-	public static $inject = ["$scope"];
-	constructor (private $scope: IAddScope) {
+	public static $inject = ["$scope", "EyeglassRecords"];
+	constructor (private $scope: IAddScope, private EyeglassRecords) {
 	    console.log("Add controller");
 	    $scope.onSubmit = {
 		name: "Add",
-		func: function(terms: string) {
-		    console.log(terms);
+		func: (terms: string) => {
+		    EyeglassRecords.addDoc(terms);
 		}
 	    };
 	}
