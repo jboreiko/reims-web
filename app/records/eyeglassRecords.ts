@@ -81,17 +81,13 @@ module reimsApp.EyeglassRecords {
 	    return this.localDB.allDocs(opts);
 	}
 
-	addRecord(terms: IEyeglassRecord): void {
+	addRecord(terms: IEyeglassRecord): any {
 	    console.log(terms);
 
 	    terms.status = "unfiled";
 
 	    // input without caring about id
-	    this.localDB.post(terms).then(function(res) {
-		console.log(res);
-	    }).catch(function(err) {
-		console.error(err);
-	    });
+	    return this.localDB.post(terms);
 	}
 
 	updateDocStatus(doc: any, status: string) {

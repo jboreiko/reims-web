@@ -30,7 +30,12 @@ module.exports = function(grunt) {
 	    },
 	    default : {
 		files: {
-		    'public/index.html' : ['bower.json', 'public/build/**/*.js', 'public/css/*.css', 'public/bower_components/bootstrap/dist/css/bootstrap.css', 'public/bower_components/angular-notify/dist/angular-notify.css']
+		    'public/index.html' : ['bower.json',
+					   'public/build/**/*.js',
+					   'public/bower_components/bootstrap/dist/css/bootstrap.css',
+					   'public/bower_components/ngtoast/dist/ngToast.css',
+					   'public/bower_components/ngtoast/dist/ngToast-animations.css',
+					   'public/css/*.css']
 		}
 	    }
 	},

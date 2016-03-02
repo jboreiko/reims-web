@@ -23,7 +23,7 @@ module reimsApp.Search {
 
 	    this.$scope.onSubmit = {
 		name: "Full Search",
-		func: function(valid: boolean, terms: any) {
+		func: function(valid: boolean, error: any, terms: any) {
 		    // ignore validity of form
 		    $scope.fullSearchResults = [{doc: {sku: "success"}}];
 		}

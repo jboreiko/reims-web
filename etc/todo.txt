@@ -17,6 +17,7 @@ Tasks
 - update pouchdb.d.ts file to match 5.0
 - custom validation to fields
 - add validation indicators
+- get animation for notifications working
 
 Product ideas
 -------------

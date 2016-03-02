@@ -5,7 +5,7 @@ module reimsApp {
     var reimsApp = angular.module("reimsApp", [
 	"ngRoute",
 	"ui.bootstrap",
-	"cgNotify",
+	"ngToast",
 	"reimsApp.Filters",
 	"reimsApp.Directives",
 	"reimsApp.EyeglassRecords",
@@ -43,5 +43,11 @@ module reimsApp {
 	    otherwise({
 		redirectTo: "/home"
 	    });
+    }]);
+
+    reimsApp.config(["ngToastProvider", function(ngToast) {
+	ngToast.configure({
+	    animation: "fade"
+	});
     }]);
 }

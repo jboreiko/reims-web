@@ -10,3 +10,7 @@ body {
 .st-sort-descent:before{
     content: '\25BC';
 }
+
+.ng-toast {
+    margin-top: 60px;
+}
