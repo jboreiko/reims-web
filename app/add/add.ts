@@ -5,6 +5,7 @@ module reimsApp.Add {
 
     interface IAddScope extends ng.IScope {
 	onSubmit: Directives.IOnSubmit;
+	unfiledRecords: any[];
     }
 
     class AddController {
@@ -15,7 +16,10 @@ module reimsApp.Add {
 		name: "Add",
 		func: (valid: boolean, error: any, terms: EyeglassRecords.IEyeglassRecord) => {
 		    if (!valid) {
-			toast.create({content: "Please fill in a ".concat(error.required[0].$name), dismissButton: true, className: "warning"});
+			toast.create({
+			    content: "Please fill in a ".concat(error.required[0].$name),
+			    dismissButton: true,
+			    className: "warning"});
 			return;
 		    }
 
@@ -26,6 +30,12 @@ module reimsApp.Add {
 		    });
 		}
 	    };
+
+	    EyeglassRecords.getByStatus("unfiled").then(function (result) {
+		$scope.unfiledRecords = result.rows;
+	    }).catch(function(err) {
+		console.error(err);
+	    });
 	}
     }
 

@@ -18,6 +18,7 @@ Tasks
 - custom validation to fields
 - add validation indicators
 - get animation for notifications working
+- make state of addition table reload after addition
 
 Product ideas
 -------------

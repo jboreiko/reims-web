@@ -100,6 +100,37 @@ module reimsApp.EyeglassRecords {
 	    });
 	}
 
+	getByStatus(status: string) {
+	    var statusIndex = {
+		_id: "_design/status_index",
+		views: {
+		    by_status: {
+			map: function emitStatus(doc) {
+			    if (doc.status) {
+				emit(doc.status);
+			    } else {
+				emit("no status");
+			    }
+			}.toString()
+		    }
+		}
+	    };
+
+	    this.localDB.put(statusIndex).then(function() {
+		console.log("created index");
+	    }).catch(function(err) {
+		if (err.status !== 409) {
+		    console.error(err);
+		}
+		console.log("index already installed");
+	    });
+
+	    return this.localDB.query("status_index/by_status", {
+		key: status,
+		include_docs: true
+	    });
+	}
+
 	getStatusHist() {
 	    // create a design doc
 	    var ddoc = {
@@ -132,7 +163,7 @@ module reimsApp.EyeglassRecords {
 		console.log(err);
 	    });
 	    return this.localDB.query("index", {
-		keys: ["dispensed", "missing", "filed"],
+		keys: ["dispensed", "missing", "filed", "unfiled"],
 		group: true
 	    });
 	}
