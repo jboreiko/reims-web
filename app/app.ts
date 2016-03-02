@@ -5,6 +5,7 @@ module reimsApp {
     var reimsApp = angular.module("reimsApp", [
 	"ngRoute",
 	"ui.bootstrap",
+	"cgNotify",
 	"reimsApp.Filters",
 	"reimsApp.Directives",
 	"reimsApp.EyeglassRecords",

@@ -29,6 +29,10 @@
     "angular-resource": "~1.4.7",
     "angular-pouchdb": "~4.0.0",
     "angular-bootstrap": "~0.14.3",
-    "plottable": "~2.0.0"
+    "plottable": "~2.0.0",
+    "angular-notify": "~2.5.0"
+  },
+  "resolutions": {
+    "angular": "1.4.9"
   }
 }
