@@ -4,9 +4,11 @@ module reimsApp.Search {
     "use strict";
 
     class SearchController {
-	public static $inject = ["$scope", "$uibModal", "EyeglassRecords"];
+	public static $inject = ["$scope", "$filter", "$uibModal", "EyeglassRecords"];
+	private resultPage: Pagination.Paginator;
 
 	constructor (private $scope: any,
+		     private $filter: any,
 		     private $uibModal: ng.ui.bootstrap.IModalService,
 		     private EyeglassRecords: any) {
 	    console.log("Search controller");
@@ -15,12 +17,6 @@ module reimsApp.Search {
 	    $scope.fullSearchResults = [{doc: {sku: "test"}}];
 	    $scope.displayFull = false;
 
-	    EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
-		$scope.allResultRows = results.rows;
-	    }).catch(function(err) {
-		console.log(err);
-	    });
-
 	    this.$scope.onSubmit = {
 		name: "Full Search",
 		func: function(valid: boolean, error: any, terms: any) {
@@ -28,6 +24,28 @@ module reimsApp.Search {
 		    $scope.fullSearchResults = [{doc: {sku: "success"}}];
 		}
 	    };
+
+	    // might be a bit expensive, consider another option
+	    $scope.$watch("searchTerms", () => {
+		this.updateQuickResults();
+	    }, true);
+
+	    this.resultPage = new Pagination.Paginator($scope, $filter, EyeglassRecords);
+	    this.updateQuickResults();
+	}
+
+	updateQuickResults(): void {
+	    this.resultPage.getNextPage().then((results) => {
+		var temp = this.$filter("filter")(results.rows, {doc: this.$scope.searchTerms});
+		if (temp.length < 20) {
+		    this.resultPage.getNextPage().then((results) => {
+			temp.push(results.rows);
+			this.$scope.allResultRows = temp;
+		    });
+		} else {
+			this.$scope.allResultRows = temp;
+		}
+	    });
 	}
 
 	search(searchTerms: any): void {
