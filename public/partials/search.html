@@ -36,7 +36,7 @@
       <table class="table table-condensed table-striped table-hover">
 	<thead reims-result-header></thead>
 	<tbody ng-hide="displayFull">
-	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms}" ng-click="Ctrl.selectRow(result)" ng-class="{active: result.doc.sku === selectedRow.doc.sku}"></tr>
+	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms} | limitTo: 20" ng-click="Ctrl.selectRow(result)" ng-class="{active: result.doc.sku === selectedRow.doc.sku}"></tr>
 	</tbody>
 	<tbody ng-hide="!displayFull">
 	  <tr ng-repeat="result in fullSearchResults">
