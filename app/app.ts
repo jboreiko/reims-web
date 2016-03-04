@@ -47,7 +47,8 @@ module reimsApp {
 
     reimsApp.config(["ngToastProvider", function(ngToast) {
 	ngToast.configure({
-	    animation: "fade"
+	    animation: "fade",
+	    dismissButton: true
 	});
     }]);
 }
