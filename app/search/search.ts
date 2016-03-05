@@ -15,7 +15,7 @@ module reimsApp.Search {
 	    $scope.fullSearchResults = [{doc: {sku: "test"}}];
 	    $scope.displayFull = false;
 
-	    EyeglassRecords.localAllDocs({include_docs : true}).then(function(results) {
+	    EyeglassRecords.getByStatus("filed").then(function(results) {
 		$scope.allResultRows = results.rows;
 	    }).catch(function(err) {
 		console.log(err);
