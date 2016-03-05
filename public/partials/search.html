@@ -39,10 +39,7 @@
 	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms} | limitTo: 20" ng-click="Ctrl.selectRow(result)" ng-class="{active: result.doc.sku === selectedRow.doc.sku}"></tr>
 	</tbody>
 	<tbody ng-hide="!displayFull">
-	  <tr ng-repeat="result in fullSearchResults">
-	    <td>{{result.doc.sku}}</td>
-	    <td>foo</td>
-	  </tr>
+	  <tr reims-result-row ng-repeat="result in fullSearchResults"></tr>
 	</tbody>
       </table>
       <div ng-if="!allResultRows" class="col-sm-12 text-center">

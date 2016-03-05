@@ -11,14 +11,26 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="panel panel-default">
-      <div class="panel-heading">State of Addition - Unfiled</div>
-      <div class="panel-body">
-	<table class="table table-condensed table-striped table-hover">
-	  <thead reims-result-header></thead>
-	  <tbody>
-	    <tr reims-result-row ng-repeat="result in unfiledRecords"></tr>
-	  </tbody>
-	</table>
+      <div class="panel-heading">
+	<div class="row">
+	  <div class="col-sm-4">State of Addition - Unfiled</div>
+	  <div class="col-sm-4 col-sm-offset-4">
+	    <div class="btn-group pull-right" role="group">
+	      <button class="btn btn-primary" type="button" ng-click="Ctrl.dispense(selectedRow)">Mark As Filed</button>
+	      <button class="btn btn-info" type="button" ng-click="Ctrl.update(selectedRow)">Update</button>
+	      <button class="btn btn-danger" type="button" ng-click="Ctrl.markAsMissing(selectedRow)">Remove</button>
+	    </div>
+	  </div>
+	</div>
+      </div><!-- end panel-heading-->
+      <table class="table table-condensed table-striped table-hover">
+	<thead reims-result-header></thead>
+	<tbody>
+	  <tr reims-result-row ng-repeat="result in unfiledRecords"></tr>
+	</tbody>
+      </table>
+      <div ng-if="!unfiledRecords" class="col-sm-12 text-center">
+	<img src="ripple.gif" /> <!-- from loading.io -->
       </div>
     </div>
   </div>

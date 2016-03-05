@@ -12,7 +12,7 @@ module reimsApp.Search {
 	    console.log("Search controller");
 
 	    $scope.searchTerms = {};
-	    $scope.fullSearchResults = [{doc: {sku: "test"}}];
+	    $scope.fullSearchResults = [];
 	    $scope.displayFull = false;
 
 	    EyeglassRecords.getByStatus("filed").then(function(results) {
