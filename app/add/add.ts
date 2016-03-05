@@ -18,17 +18,15 @@ module reimsApp.Add {
 		name: "Add",
 		func: (valid: boolean, error: any, terms: EyeglassRecords.IEyeglassRecord) => {
 		    if (!valid) {
-			toast.create({
-			    content: "Please fill in a ".concat(error.required[0].$name),
-			    className: "warning"});
+			toast.warning("Please fill in a ".concat(error.required[0].$name));
 			return;
 		    }
 
 		    EyeglassRecords.addRecord(terms).then((res) => {
-			toast.create({content: "Record successfully added!", className: "success"});
+			toast.success("Record successfully added!");
 			this.updateUnfiled();
 		    }).catch(function(err) {
-			toast.create({content: "An error occured: ".concat(err), className: "danger"});
+			toast.danger("An error occured: ".concat(err));
 		    });
 		}
 	    };

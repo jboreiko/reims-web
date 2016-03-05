@@ -26,9 +26,9 @@
 	  </div>
 	  <div class="col-sm-4">
 	    <div class="btn-group pull-right" role="group">
-	      <button class="btn btn-primary" type="button" ng-click="Ctrl.dispense(selectedRow)">Dispense</button>
-	      <button class="btn btn-info" type="button" ng-click="Ctrl.update(selectedRow)">Update</button>
-	      <button class="btn btn-danger" type="button" ng-click="Ctrl.markAsMissing(selectedRow)">Missing</button>
+	      <button class="btn btn-primary" type="button" ng-click="Ctrl.dispense()">Dispense</button>
+	      <button class="btn btn-info" type="button" ng-click="Ctrl.update()">Update</button>
+	      <button class="btn btn-danger" type="button" ng-click="Ctrl.markAsMissing()">Missing</button>
 	    </div>
 	  </div>
 	</div>
@@ -36,7 +36,7 @@
       <table class="table table-condensed table-striped table-hover">
 	<thead reims-result-header></thead>
 	<tbody ng-hide="displayFull">
-	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms} | limitTo: 20" ng-click="Ctrl.selectRow(result)" ng-class="{active: result.doc.sku === selectedRow.doc.sku}"></tr>
+	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms} | limitTo: 20" ng-click="Ctrl.selectRow(result)" ng-class="{info: result.selected}"></tr>
 	</tbody>
 	<tbody ng-hide="!displayFull">
 	  <tr reims-result-row ng-repeat="result in fullSearchResults"></tr>
