@@ -17,11 +17,7 @@ module reimsApp.Search {
 	    $scope.fullSearchResults = [];
 	    $scope.displayFull = false;
 
-	    EyeglassRecords.getByStatus("filed").then(function(results) {
-		$scope.allResultRows = results.rows;
-	    }).catch(function(err) {
-		console.log(err);
-	    });
+	    this.updateQuickResults();
 
 	    this.$scope.onSubmit = {
 		name: "Full Search",
@@ -30,6 +26,12 @@ module reimsApp.Search {
 		    $scope.fullSearchResults = [{doc: {sku: "success"}}];
 		}
 	    };
+	}
+
+	updateQuickResults() {
+	    this.EyeglassRecords.getByStatus("filed").then((results) => {
+		this.$scope.allResultRows = results.rows;
+	    });
 	}
 
 	search(searchTerms: any): void {
@@ -42,7 +44,7 @@ module reimsApp.Search {
 	    var action: Modals.IModalAction = {"name" : "dispense",
 					       "rows" : rows,
   					       "success" : () => {
-						   this.EyeglassRecords.updateDocStatus(rows, "dispense");
+						   this.EyeglassRecords.updateRowsStatus(rows, "dispense");
 					       }};
 	    Modals.openModal(this.$uibModal, action);
 	};
@@ -53,7 +55,7 @@ module reimsApp.Search {
 	    var action: Modals.IModalAction = {"name" : "mark as missing",
 					       "rows" : rows,
 					       "success": () => {
-						   this.EyeglassRecords.updateDocStatus(rows, "missing");
+						   this.EyeglassRecords.updateRowsStatus(rows, "missing");
 					       }};
 
 	    Modals.openModal(this.$uibModal, action);

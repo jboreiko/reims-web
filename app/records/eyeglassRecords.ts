@@ -100,6 +100,12 @@ module reimsApp.EyeglassRecords {
 	    });
 	}
 
+	updateRowsStatus(rows: any[], status: string) {
+	    angular.forEach(rows, (row) => {
+		this.updateDocStatus(row.doc, status);
+	    });
+	}
+
 	getByStatus(status: string) {
 	    var statusIndex = {
 		_id: "_design/status_index",

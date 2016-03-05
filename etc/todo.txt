@@ -18,7 +18,7 @@ Tasks
 - custom validation to fields
 - add validation indicators
 - get animation for notifications working
-- add multiple selected rows at once
+- remove after action
 
 Product ideas
 -------------
