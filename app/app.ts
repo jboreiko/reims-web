@@ -26,7 +26,8 @@ module reimsApp {
 	    }).
 	    when("/add", {
 		templateUrl: "partials/add.html",
-		controller: "AddCtrl"
+		controller: "AddCtrl",
+		controllerAs: "Ctrl"
 	    }).
 	    when("/help", {
 		templateUrl: "partials/help.html"
