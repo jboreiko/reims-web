@@ -24,14 +24,19 @@
 	"grunt-tslint": "^3.0.1",
 	"jasmine-node": "^1.14.5",
 	"karma": "^0.13.14",
-	"load-grunt-tasks": "^3.4.0"
+	"load-grunt-tasks": "^3.4.0",
+	"protractor": "^3.1.1"
     },
     "scripts": {
-	"prestart": "npm install --production",
 	"postinstall": "bower install",
+	"prestart": "npm install --production",
 	"start": "node server.js",
 	"pretest": "npm install",
-	"test": "jasmine-node spec/unit"
+	"test": "jasmine-node spec/unit",
+	"preupdate-webdriver": "npm install",
+	"update-webdriver": "webdriver-manager update",
+	"pretest-ete": "npm run update-webdriver",
+	"test-ete": "protractor spec/ete/conf.js"
     },
     "repository": {
 	"type": "git",
