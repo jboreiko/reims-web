@@ -31,7 +31,7 @@
     "postinstall": "bower install",
     "start": "node server.js",
     "pretest": "npm install",
-    "test": "jasmine-node spec"
+    "test": "jasmine-node spec/unit"
   },
   "repository": {
     "type": "git",
