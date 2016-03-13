@@ -19,6 +19,7 @@ Tasks
 - add validation indicators
 - get animation for notifications working
 - remove after action
+- move tests to typescript
 
 Product ideas
 -------------
