@@ -1,49 +1,49 @@
 {
-  "name": "reims-web",
-  "version": "0.1.2",
-  "description": "Richmond Eyeglass Inventory Matching System Web Version",
-  "main": "server.js",
-  "dependencies": {
-    "body-parser": "^1.14.2",
-    "cookie-parser": "^1.4.1",
-    "express": "^4.13.3",
-    "express-session": "^1.13.0",
-    "morgan": "^1.6.1",
-    "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-compress": "^0.14.0",
-    "grunt-contrib-copy": "^0.8.2",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-github-releaser": "^0.1.18",
-    "grunt-injector": "^0.6.1",
-    "grunt-mkdir": "^0.1.2",
-    "grunt-ts": "^5.2.0",
-    "grunt-tslint": "^3.0.1",
-    "jasmine-node": "^1.14.5",
-    "karma": "^0.13.14",
-    "load-grunt-tasks": "^3.4.0"
-  },
-  "scripts": {
-    "prestart": "npm install --production",
-    "postinstall": "bower install",
-    "start": "node server.js",
-    "pretest": "npm install",
-    "test": "jasmine-node spec/unit"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jboreiko/reims-web.git"
-  },
-  "keywords": [
-    "reims"
-  ],
-  "author": "John Boreiko",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jboreiko/reims-web/issues"
-  },
-  "homepage": "https://github.com/jboreiko/reims-web#readme"
+    "name": "reims-web",
+    "version": "0.1.2",
+    "description": "Richmond Eyeglass Inventory Matching System Web Version",
+    "main": "server.js",
+    "dependencies": {
+	"body-parser": "^1.14.2",
+	"cookie-parser": "^1.4.1",
+	"express": "^4.13.3",
+	"express-session": "^1.13.0",
+	"morgan": "^1.6.1",
+	"passport": "^0.3.2",
+	"passport-local": "^1.0.0"
+    },
+    "devDependencies": {
+	"grunt": "^0.4.5",
+	"grunt-contrib-compress": "^0.14.0",
+	"grunt-contrib-copy": "^0.8.2",
+	"grunt-contrib-watch": "^0.6.1",
+	"grunt-github-releaser": "^0.1.18",
+	"grunt-injector": "^0.6.1",
+	"grunt-mkdir": "^0.1.2",
+	"grunt-ts": "^5.2.0",
+	"grunt-tslint": "^3.0.1",
+	"jasmine-node": "^1.14.5",
+	"karma": "^0.13.14",
+	"load-grunt-tasks": "^3.4.0"
+    },
+    "scripts": {
+	"prestart": "npm install --production",
+	"postinstall": "bower install",
+	"start": "node server.js",
+	"pretest": "npm install",
+	"test": "jasmine-node spec/unit"
+    },
+    "repository": {
+	"type": "git",
+	"url": "git+https://github.com/jboreiko/reims-web.git"
+    },
+    "keywords": [
+	"reims"
+    ],
+    "author": "John Boreiko",
+    "license": "ISC",
+    "bugs": {
+	"url": "https://github.com/jboreiko/reims-web/issues"
+    },
+    "homepage": "https://github.com/jboreiko/reims-web#readme"
 }
