@@ -20,12 +20,6 @@ Tasks
 - get animation for notifications working
 - remove after action
 - move tests to typescript
-- enable testing on firefox
-  multiCapabilities: [{
-	browserName: 'firefox'
-    }, {
-	browserName: 'chrome'
-    }]
 - test against deployment artifact
 - autodeploy green master build
 
