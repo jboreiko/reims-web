@@ -23,8 +23,10 @@
 	"grunt-mkdir": "^0.1.2",
 	"grunt-ts": "^5.2.0",
 	"grunt-tslint": "^3.0.1",
-	"jasmine-node": "^1.14.5",
 	"karma": "^0.13.14",
+	"karma-chrome-launcher": "^0.2.2",
+	"karma-firefox-launcher": "^0.1.7",
+	"karma-jasmine": "^0.3.7",
 	"load-grunt-tasks": "^3.4.0",
 	"protractor": "3.0.0"
     },
@@ -33,13 +35,13 @@
 	"prestart": "npm install --production",
 	"start": "node server.js",
 	"pretest": "npm install",
-	"test": "jasmine-node spec/unit",
+	"test": "karma start test/unit/conf.js",
 	"preupdate-webdriver": "npm install",
 	"update-webdriver": "webdriver-manager update",
 	"prestart-webdriver": "npm run update-webdriver",
 	"start-webdriver": "webdriver-manager start",
 	"pretest-ete": "npm run update-webdriver",
-	"test-ete": "protractor spec/ete/conf.js"
+	"test-ete": "protractor test/ete/conf.js"
     },
     "repository": {
 	"type": "git",
@@ -54,4 +56,4 @@
 	"url": "https://github.com/jboreiko/reims-web/issues"
     },
     "homepage": "https://github.com/jboreiko/reims-web#readme"
-}
+} 

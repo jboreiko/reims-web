@@ -26,7 +26,8 @@ Tasks
     }, {
 	browserName: 'chrome'
     }]
-
+- test against deployment artifact
+- autodeploy green master build
 
 Product ideas
 -------------
