@@ -35,7 +35,7 @@
 	"prestart": "npm install --production",
 	"start": "node server.js",
 	"pretest": "npm install",
-	"test": "karma start test/unit/conf.js",
+	"test": "karma start test/unit/conf.js --single-run",
 	"preupdate-webdriver": "npm install",
 	"update-webdriver": "webdriver-manager update",
 	"prestart-webdriver": "npm run update-webdriver",
