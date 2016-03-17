@@ -35,6 +35,7 @@ describe('REIMS web login', function() {
 	password.sendKeys("thesecretpassword");
 
 	loginForm.submit();
+	browser.refresh();
 
 	expect(browser.getCurrentUrl()).toEqual(baseUrl + '/#/home');
     });

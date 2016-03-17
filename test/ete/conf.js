@@ -1,7 +1,8 @@
 exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['login-spec.js'],
+    specs: ['loginSpec.js', 'homeSpec.js'],
     framework: 'jasmine2',
+    rootElement: 'html',
     multiCapabilities: [{
 	browserName: 'firefox'
     }, {
