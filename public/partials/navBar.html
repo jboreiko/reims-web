@@ -7,16 +7,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand active" href="#home">REIMS</a>
+      <a class="navbar-brand active" href="#home" id="homeTab">REIMS</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse" uib-collapse="Ctrl.isCollapsed" ng-controller="SyncCtrl">
       <ul class="nav navbar-nav">
-        <li><a ng-click="Ctrl.collapse()" href="#search">Search</a></li>
-        <li><a ng-click="Ctrl.collapse()" href="#add">Add</a></li>
-        <li><a ng-click="Ctrl.collapse()" href="#help">Help</a></li>
+        <li><a ng-click="Ctrl.collapse()" href="#search" id="searchTab">Search</a></li>
+        <li><a ng-click="Ctrl.collapse()" href="#add" id="addTab">Add</a></li>
+        <li><a ng-click="Ctrl.collapse()" href="#help" id="helpTab">Help</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-	<li><a ng-click="Ctrl.collapse()" href="#sync">Database Sync: {{syncState}}</a></li>
+	<li><a ng-click="Ctrl.collapse()" href="#sync" id="syncTab">Database Sync: {{syncState}}</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
