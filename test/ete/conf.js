@@ -6,7 +6,8 @@ exports.config = {
 	    'searchSpec.js'],
     framework: 'jasmine2',
     rootElement: 'html',
-    baseUrl: 'http://192.168.99.100:3000',
+    //baseUrl: 'http://192.168.99.100:3000',
+    baseUrl: 'http://localhost:3000',
     capabilities: {
 	browserName: 'chrome'
     }
