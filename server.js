@@ -30,7 +30,7 @@ passport.deserializeUser(function(id, cb) {
 app.use(morgan('combined'));
 //app.use(require('cookie-parser')); // causes the whole server to freeze
 app.use(require('body-parser').urlencoded({ extended: true}));
-app.use(session({ secret: 'TODO changeme' }));
+app.use(session({ secret: 'TODO changeme', cookie: { maxAge: 86400000 }}));
 
 app.use(passport.initialize());
 app.use(passport.session());

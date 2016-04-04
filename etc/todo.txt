@@ -3,7 +3,6 @@ Product TODOs
 - Update to use uglyify
 - AWS auto deployment
 - Update to use karma + phantomjs
-- Update to use protractor
 
 Tasks
 -----
@@ -22,6 +21,13 @@ Tasks
 - move tests to typescript
 - test against deployment artifact
 - autodeploy green master build
+- add in multibrowser testing
+    multiCapabilities: [{
+	browserName: 'firefox'
+    }, {
+	browserName: 'chrome'
+    }]
+
 
 Product ideas
 -------------
