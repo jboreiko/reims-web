@@ -8,8 +8,8 @@ machine:
 dependencies:
   pre:
     - npm install -g grunt-cli
+  post: 
     - grunt build
-  override:
     - docker info
     - docker build -t reims-web .
 
