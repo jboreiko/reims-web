@@ -27,7 +27,8 @@ Tasks
     }, {
 	browserName: 'chrome'
     }]
-
+- update readme
+- steal search functionality from the other site
 
 Product ideas
 -------------
