@@ -8,13 +8,13 @@ machine:
 dependencies:
   pre:
     - npm install -g grunt-cli
+    - grunt build
   override:
     - docker info
     - docker build -t reims-web .
 
 test:
   pre:
-    - grunt build
     - docker run -d -p 3000:3000 reims-web
     - npm run start-webdriver:
         background: true
