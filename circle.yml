@@ -18,7 +18,7 @@ test:
     - docker run -d -p 3000:3000 --name server reims-web
     - npm run start-webdriver:
         background: true
-    - curl --retry 20 --retry-delay 1 -v http://localhost:3000
+    - sleep 5
     - docker ps
   override:
     - npm test
