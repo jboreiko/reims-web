@@ -16,8 +16,9 @@ dependencies:
 test:
   pre:
     - docker run -d -p 3000:3000 --name server reims-web
-    - docker run -d -p 4444:4444 --name selenium selenium/standalone-chrome
-    - curl --retry 10 --retry-delay 1 -v http://localhost:3000
+    - npm run start-webdriver:
+        background: true
+    - curl --retry 20 --retry-delay 1 -v http://localhost:3000
     - docker ps
   override:
     - npm test

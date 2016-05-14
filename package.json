@@ -40,7 +40,7 @@
 	"update-webdriver": "webdriver-manager update",
 	"prestart-webdriver": "npm run update-webdriver",
 	"start-webdriver": "webdriver-manager start",
-	"pretest-ete": "npm install",
+	"pretest-ete": "npm run update-webdriver",
 	"test-ete": "protractor test/ete/conf.js"
     },
     "repository": {
