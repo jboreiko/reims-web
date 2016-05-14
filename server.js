@@ -30,7 +30,7 @@ passport.deserializeUser(function(id, cb) {
 app.use(morgan('combined'));
 //app.use(require('cookie-parser')); // causes the whole server to freeze
 app.use(require('body-parser').urlencoded({ extended: true}));
-app.use(session({ secret: 'TODO changeme' }));
+app.use(session({ secret: 'TODO changeme', cookie: { maxAge: 86400000 }}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -48,6 +48,15 @@ app.use('/', function(req, res, next) {
 	next();
     } else if (req.url.indexOf("bootstrap.") > -1) {
 	console.log("Loading bootstrap for the login page");
+	next();
+    } else if (req.url.indexOf("jquery.js") > -1) {
+	console.log("Loading jquery for the login page");
+	next();
+    } else if (req.url.indexOf("angular.js") > -1) {
+	console.log("Loading angular for the login page");
+	next();
+    } else if (req.url.indexOf("login.js") > -1) {
+	console.log("loading login app for the login page");
 	next();
     } else {
 	console.log("Illegal access attempted, sending over to login");

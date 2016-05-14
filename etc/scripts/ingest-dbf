@@ -11,9 +11,11 @@ def usage():
     print("{} <dbf-file> <couchdb-table-name>".format(sys.argv[0]))
 
 def write_json(csv_rows, db_name):
+    print("Writing rows to database {}".format(db_name))
     couch = couchdb.Server()
     db = couch[db_name]
     for row in csv_rows:
+        row['status'] = "filed"
         print row
         print db.save(row)
 

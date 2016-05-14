@@ -199,9 +199,9 @@ interface PouchReplicate {
 }
 
 interface PouchApi {
-    revsDiff(req: any, opts: PouchRevsDiffOptions, callback: (missing: any) => void): void;
-    revsDiff(req: any, callback: (missing: any) => void): void;
-    replicate: PouchReplicate;
+	revsDiff(req: any, opts: PouchRevsDiffOptions, callback: (missing: any) => void): void;
+	revsDiff(req: any, callback: (missing: any) => void): void;
+	replicate: PouchReplicate;
 }
 
 interface PouchOptions {
@@ -228,3 +228,6 @@ declare module 'pouchdb' {
 // a filter view.
 //
 declare function emit(key: any, value: any);
+
+// CUSTOM ADDITION (do not delete)
+declare function emit(key: any);

@@ -17,68 +17,34 @@
 	  <div class="col-sm-4">
 	    <div class="btn-group btn-group-justified">
 	      <div class="btn-group">
-		<button class="btn btn-default" type="button" ng-click="showQuick()">Quick</button>
+		<button class="btn btn-default" type="button" ng-click="Ctrl.showQuick()">Quick</button>
 	      </div>
 	      <div class="btn-group">
-		<button class="btn btn-default" type="button" ng-click="showFull()">Full</button>
+		<button class="btn btn-default" type="button" ng-click="Ctrl.showFull()">Full</button>
 	      </div>
 	    </div>
 	  </div>
 	  <div class="col-sm-4">
 	    <div class="btn-group pull-right" role="group">
-	      <button class="btn btn-primary" type="button" ng-click="dispense(result)">Dispense</button>
-	      <button class="btn btn-info" type="button" ng-click="update(result)">Update</button>
-	      <button class="btn btn-danger" type="button" ng-click="markAsMissing(result)">Missing</button>
+	      <button class="btn btn-primary" type="button" ng-click="Ctrl.dispense()">Dispense</button>
+	      <button class="btn btn-info" type="button" ng-click="Ctrl.update()">Update</button>
+	      <button class="btn btn-danger" type="button" ng-click="Ctrl.markAsMissing()">Missing</button>
 	    </div>
 	  </div>
 	</div>
       </div>
       <table class="table table-condensed table-striped table-hover">
-	<thead>
-	  <tr>
-	    <th>Score</th>
-	    <th>Sku</th>
-	    <th>Type</th>
-	    <th>Gender</th>
-	    <th>Size</th>
-	    <th>Tint</th>
-	    <th>Material</th>
-	    <th>OD Sphere</th>
-	    <th>OD Cylinder</th>
-	    <th>OD Axis</th>
-	    <th>OD Add</th>
-	    <th>OS Sphere</th>
-	    <th>OS Cylinder</th>
-	    <th>OS Axis</th>
-	    <th>OS Add</th>
-	  </tr>
-	</thead>
+	<thead reims-result-header></thead>
 	<tbody ng-hide="displayFull">
-	  <tr ng-repeat="result in allResultRows | filter:{doc: searchTerms}" ng-click="selectResult(result.doc.sku)" ng-class="{active: result.doc.sku === selectedResult}">
-	    <td>1</td>
-	    <td>{{result.doc.sku}}</td>
-	    <td>{{result.doc.type | eyeglassTypeFilter}}</td>
-	    <td>{{result.doc.gender | eyeglassGenderFilter}}</td>
-	    <td>{{result.doc.size | eyeglassSizeFilter}}</td>
-	    <td>{{result.doc.tint | eyeglassTintFilter}}</td>
- 	    <td>{{result.doc.material | eyeglassMaterialFilter}}</td>
-	    <td>{{result.doc.odsphere}}</td>
-	    <td>{{result.doc.odcylinder}}</td>
-	    <td>{{result.doc.odaxis}}</td>
-	    <td>{{result.doc.odadd}}</td>
-	    <td>{{result.doc.ossphere}}</td>
-	    <td>{{result.doc.oscylinder}}</td>
-	    <td>{{result.doc.osaxis}}</td>
-	    <td>{{result.doc.osadd}}</td>
-	  </tr>
+	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms} | limitTo: 20" ng-click="Ctrl.selectRow(result)" ng-class="{info: result.selected}"></tr>
 	</tbody>
 	<tbody ng-hide="!displayFull">
-	  <tr ng-repeat="result in fullSearchResults">
-	    <td>{{result.doc.sku}}</td>
-	    <td>foo</td>
-	  </tr>
+	  <tr reims-result-row ng-repeat="result in fullSearchResults"></tr>
 	</tbody>
       </table>
+      <div ng-if="!allResultRows" class="col-sm-12 text-center">
+	<img src="ripple.gif" /> <!-- from loading.io -->
+      </div>
     </div>
   </div>
 </div>

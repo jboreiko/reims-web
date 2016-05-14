@@ -3,11 +3,9 @@ Product TODOs
 - Update to use uglyify
 - AWS auto deployment
 - Update to use karma + phantomjs
-- Update to use protractor
 
 Tasks
 -----
-- Make modal actions actually work
 - Make update modal
 - Work on input methodology (needs design / implementation)
 - Dual search capability when matches not found
@@ -15,6 +13,22 @@ Tasks
 - remove hard coded password
 - fix login page to be part of app
 - add minification to make it load quickly
+- update pouchdb.d.ts file to match 5.0
+- custom validation to fields
+- add validation indicators
+- get animation for notifications working
+- remove after action
+- move tests to typescript
+- test against deployment artifact
+- autodeploy green master build
+- add in multibrowser testing
+    multiCapabilities: [{
+	browserName: 'firefox'
+    }, {
+	browserName: 'chrome'
+    }]
+- update readme
+- steal search functionality from the other site
 
 Product ideas
 -------------
