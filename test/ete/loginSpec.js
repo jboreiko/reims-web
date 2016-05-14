@@ -1,12 +1,10 @@
 describe('REIMS web login', function() {
-    var baseUrl = 'http://localhost:3000';
-
     var username = element(by.id('username'));
     var password = element(by.id('password'));
     var loginForm = element(by.id('loginForm'));
 
     beforeEach(function() {
-	browser.get(baseUrl);
+	browser.get('/');
     });
     
     it('should have a title', function() {
@@ -14,7 +12,7 @@ describe('REIMS web login', function() {
     });
 
     it('should redirect to login', function() {
-	expect(browser.getCurrentUrl()).toEqual(baseUrl + '/login');
+	expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/login');
     });
 
     it('should not allow random user / password access', function() {
@@ -27,7 +25,7 @@ describe('REIMS web login', function() {
 
 	loginForm.submit();
 
-	expect(browser.getCurrentUrl()).toEqual(baseUrl + '/login');
+	expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/login');
     });
 
     it('should allow the test user to log in', function() {
@@ -37,6 +35,6 @@ describe('REIMS web login', function() {
 	loginForm.submit();
 	browser.refresh();
 
-	expect(browser.getCurrentUrl()).toEqual(baseUrl + '/#/home');
+	expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + '/#/home');
     });
 });

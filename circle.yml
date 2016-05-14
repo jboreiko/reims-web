@@ -1,20 +1,25 @@
 machine:
   node:
     version:
-      4.2.1
+      4.4.2
+  services:
+    - docker
 
 dependencies:
   pre:
     - npm install -g grunt-cli
+  post: 
+    - grunt build
+    - docker info
+    - docker build -t reims-web .
 
 test:
   pre:
-    - grunt build
-    - npm start 3000:
-        background: true
+    - docker run -d -p 3000:3000 --name server reims-web
     - npm run start-webdriver:
         background: true
     - sleep 5
+    - docker ps
   override:
     - npm test
     - npm run test-ete
