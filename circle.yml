@@ -1,7 +1,9 @@
 machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
   node:
     version:
-      4.4.2
+      6.9.1
   services:
     - docker
 
@@ -11,6 +13,7 @@ dependencies:
   post: 
     - grunt build
     - docker info
+    - docker --version
     - docker build -t reims-web .
 
 test:
