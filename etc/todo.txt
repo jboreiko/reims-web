@@ -29,6 +29,7 @@ Tasks
     }]
 - update readme
 - steal search functionality from the other site
+- collect docker logs as artifacts from a build
 
 Product ideas
 -------------
