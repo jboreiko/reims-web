@@ -14,11 +14,11 @@ dependencies:
     - grunt build
     - docker info
     - docker --version
-    - docker build -t reims-web .
+    - docker-compose build
 
 test:
   pre:
-    - docker run -d -p 3000:3000 --name server reims-web
+    - docker-compose up
     - npm run start-webdriver:
         background: true
     - sleep 5
