@@ -19,7 +19,7 @@ dependencies:
 
 test:
   pre:
-    - docker-compose up
+    - docker-compose up -d
     - npm run start-webdriver:
         background: true
     - sleep 5
