@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  reims-web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - couchdb
+  couchdb:
+    image: couchdb:1.6
+    ports:
+      - "5984:5984"
+    volumes:
+      - ./etc/conf/couchdb/local.ini:/usr/local/etc/couchdb/local.ini # configuration file
+      - ./data/couchdb:/usr/local/var/lib/couchdb # persisted data for local develop

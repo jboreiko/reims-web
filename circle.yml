@@ -10,15 +10,18 @@ machine:
 dependencies:
   pre:
     - npm install -g grunt-cli
+    - sudo pip install docker-compose
+    - sudo service couchdb stop
   post: 
     - grunt build
     - docker info
+    - docker-compose --version
     - docker --version
-    - docker build -t reims-web .
+    - docker-compose build
 
 test:
   pre:
-    - docker run -d -p 3000:3000 --name server reims-web
+    - docker-compose up -d
     - npm run start-webdriver:
         background: true
     - sleep 5
