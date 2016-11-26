@@ -15,8 +15,6 @@ dependencies:
   post: 
     - grunt build
     - docker info
-    - docker-compose --version
-    - docker --version
     - docker-compose build
 
 test:
