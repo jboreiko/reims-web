@@ -47,6 +47,10 @@ module reimsApp.Add {
 
 	markAsFiled() {
 	    var rows = this.getSelectedRows();
+	    if (rows.length === 0) {
+		this.toast.warning("Please select rows first");
+		return;
+	    }
 	    console.log("Marking as filed", rows);
 	    var action: Modals.IModalAction = {"name" : "filed",
 					       "rows" : rows,
@@ -64,6 +68,10 @@ module reimsApp.Add {
 
 	remove() {
 	    var rows = this.getSelectedRows();
+	    if (rows.length === 0) {
+		this.toast.warning("Please select rows first");
+		return;
+	    }
 	    console.log("Remove rows", rows);
 	    var action: Modals.IModalAction = {"name" : "remove",
 					       "rows" : rows,

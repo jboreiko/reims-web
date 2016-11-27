@@ -17,7 +17,9 @@ module reimsApp.Modals {
 	    action.success();
 	}, function() {
 	    console.log("Modal rejected, no action taken");
-	    action.failure();
+	    if (action.hasOwnProperty("failure")) {
+		action.failure();
+	    }
 	});
     };
 
