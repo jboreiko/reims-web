@@ -26,7 +26,7 @@
       <table class="table table-condensed table-striped table-hover">
 	<thead reims-result-header></thead>
 	<tbody>
-	  <tr reims-result-row ng-repeat="result in unfiledRecords" ng-click="Ctrl.selectRow(result)" ng-class="{info: result.selected}"></tr></tr>
+	  <tr reims-result-row ng-repeat="result in unfiledRecords | filter: {doc: {status:'!deleted'} }" ng-click="Ctrl.selectRow(result)" ng-class="{info: result.selected}"></tr></tr>
 	</tbody>
       </table>
       <div ng-if="!unfiledRecords" class="col-sm-12 text-center">

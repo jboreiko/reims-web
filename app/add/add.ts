@@ -41,7 +41,7 @@ module reimsApp.Add {
 	}
 
 	selectRow(row: any): void {
-	    console.log("Toggling", row.id);
+	    console.log("Toggling", row);
 	    row.selected = row.selected ? false : true;
 	};
 
@@ -65,7 +65,12 @@ module reimsApp.Add {
 	remove() {
 	    var rows = this.getSelectedRows();
 	    console.log("Remove rows", rows);
-	    this.toast.danger("Remove not available");
+	    var action: Modals.IModalAction = {"name" : "remove",
+					       "rows" : rows,
+					       "success" : () => {
+						   this.EyeglassRecords.deleteRows(rows);
+					       }};
+	    Modals.openModal(this.$uibModal, action);
 	}
 
 	private updateUnfiled() {
