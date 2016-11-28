@@ -40,6 +40,11 @@ module reimsApp.Search {
 
 	dispense(): void {
 	    var rows = this.getSelectedRows();
+	    if (rows.length === 0) {
+		this.toast.warning("Please select rows first");
+		return;
+	    }
+
 	    console.log("Dispensing", rows);
 	    var action: Modals.IModalAction = {"name" : "dispense",
 					       "rows" : rows,
@@ -51,6 +56,11 @@ module reimsApp.Search {
 
 	markAsMissing(): void {
 	    var rows = this.getSelectedRows();
+	    if (rows.length === 0) {
+		this.toast.warning("Please select rows first");
+		return;
+	    }
+
 	    console.log("Marking as missing", rows);
 	    var action: Modals.IModalAction = {"name" : "mark as missing",
 					       "rows" : rows,

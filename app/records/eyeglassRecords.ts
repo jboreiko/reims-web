@@ -106,6 +106,12 @@ module reimsApp.EyeglassRecords {
 	    });
 	}
 
+	deleteRows(rows: any[]) {
+	    angular.forEach(rows, (row) => {
+		this.updateDocStatus(row.doc, "deleted");
+	    });
+	}
+
 	getByStatus(status: string) {
 	    var statusIndex = {
 		_id: "_design/status_index",
