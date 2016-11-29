@@ -40,7 +40,3 @@ Product ideas
   - automated machine (about 30 minutes a machine)
   - mechanical device that grinds the lenses
 - metrics really important
-
-Note
-----
-webdriver-manager is unwilling to install the latest chrome driver (2.25) and instead installs 2.21 so I have downloaded the 2.25 and renamed it to look like 2.21 in /usr/local/lib/node_modules/protractor/selenium to get around this problem for the time being.  Pending https://github.com/angular/webdriver-manager/issues/102 will need to update to the latest webdriver-manager once it's released with the fix
