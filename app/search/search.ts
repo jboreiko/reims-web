@@ -21,9 +21,16 @@ namespace reimsApp.Search {
 
             this.$scope.onSubmit = {
                 name: "Full Search",
-                func: function(valid: boolean, error: any, terms: any) {
+                func: (valid: boolean, error: any, terms: any) => {
                     // ignore validity of form
-                    $scope.fullSearchResults = [{doc: {sku: "success"}}];
+                    console.log("Running full search", this);
+                    this.$scope.loading = true;
+                    EyeglassRecords.fullSearch(terms, (results) => {
+                        console.log("Running callback");
+                        this.$scope.fullSearchResults = results.rows;
+                        this.$scope.loading = false;
+                    });
+                    this.showFull();
                 }
             };
         }
