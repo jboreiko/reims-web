@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "plottable": "registry:dt/plottable#1.4.0+20160510010627"
+  }
+}
