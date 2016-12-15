@@ -1,6 +1,6 @@
 /// <reference path="../_all.ts" />
 
-module reimsApp.Add {
+namespace reimsApp.Add {
     "use strict";
 
     interface IAddScope extends ng.IScope {
@@ -46,13 +46,13 @@ module reimsApp.Add {
     };
 
     markAsFiled() {
-        var rows = this.getSelectedRows();
+        const rows = this.getSelectedRows();
         if (rows.length === 0) {
             this.toast.warning("Please select rows first");
             return;
         }
         console.log("Marking as filed", rows);
-        var action: Modals.IModalAction = {"name" : "filed",
+        const action: Modals.IModalAction = {"name" : "filed",
                             "rows" : rows,
                             "success" : () => {
                                 this.EyeglassRecords.updateRowsStatus(rows, "filed");
@@ -61,19 +61,19 @@ module reimsApp.Add {
     }
 
     update() {
-        var rows = this.getSelectedRows();
+        const rows = this.getSelectedRows();
         console.log("Update row", rows);
         this.toast.danger("Update not available");
     }
 
     remove() {
-        var rows = this.getSelectedRows();
+        const rows = this.getSelectedRows();
         if (rows.length === 0) {
             this.toast.warning("Please select rows first");
             return;
         }
         console.log("Remove rows", rows);
-        var action: Modals.IModalAction = {"name" : "remove",
+        const action: Modals.IModalAction = {"name" : "remove",
                             "rows" : rows,
                             "success" : () => {
                                 this.EyeglassRecords.deleteRows(rows);
@@ -90,6 +90,6 @@ module reimsApp.Add {
     }
     }
 
-    var app = angular.module("reimsApp.Add", []);
+    const app = angular.module("reimsApp.Add", []);
     app.controller("AddCtrl", AddController);
 }
