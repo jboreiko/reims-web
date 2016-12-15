@@ -1,5 +1,5 @@
 <td><input type="checkbox" ng-model="result.selected"></td>
-<td>1</td> <!-- score -->
+<td>{{result.doc.score || 0}}</td> <!-- score -->
 <td>{{result.doc.sku}}</td>
 <td>{{result.doc.type | eyeglassTypeFilter}}</td>
 <td>{{result.doc.gender | eyeglassGenderFilter}}</td>

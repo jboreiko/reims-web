@@ -36,13 +36,13 @@
       <table class="table table-condensed table-striped table-hover">
 	<thead reims-result-header></thead>
 	<tbody ng-hide="displayFull">
-	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms} | limitTo: 20" ng-click="Ctrl.selectRow(result)" ng-class="{info: result.selected}"></tr>
+	  <tr reims-result-row ng-repeat="result in allResultRows | filter:{doc: searchTerms} | limitTo: 50" ng-click="Ctrl.selectRow(result)" ng-class="{info: result.selected}"></tr>
 	</tbody>
 	<tbody ng-hide="!displayFull">
-	  <tr reims-result-row ng-repeat="result in fullSearchResults"></tr>
+	  <tr reims-result-row ng-repeat="result in fullSearchResults | orderBy: 'doc.score' : 'number' | limitTo: 50"></tr>
 	</tbody>
       </table>
-      <div ng-if="!allResultRows" class="col-sm-12 text-center">
+      <div ng-if="!allResultRows || loading" class="col-sm-12 text-center">
 	<img src="ripple.gif" /> <!-- from loading.io -->
       </div>
     </div>
