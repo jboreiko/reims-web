@@ -1,6 +1,6 @@
 /// <reference path="_all.ts" />
 
-module reimsLogin {
+namespace reimsLogin {
     "use strict";
-    var reimsLogin = angular.module("reimsLogin", []);
+    const reimsLogin = angular.module("reimsLogin", []);
 }
