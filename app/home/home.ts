@@ -25,6 +25,7 @@ namespace reimsApp.Home {
                 const plot = new Plottable.Plots.Pie()
                     .addDataset(new Plottable.Dataset(data))
                     .sectorValue(function(d) { return d.value; }, scale)
+                    .innerRadius(90)
                     .attr("fill", function(d) { return d.value; }, colorScale)
                     .renderTo("svg#example");
 
