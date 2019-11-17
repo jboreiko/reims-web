@@ -1,10 +1,9 @@
 const CSS = [
+    'angular/angular-csp.css',
     'jquery-ui-dist/jquery-ui.min.css',
-    'jquery-datetimepicker/jquery.datetimepicker.css'
 ];
 const JS = [
-    'jquery-ui-dist/jquery-ui.min.js',
-    'jquery-datetimepicker/jquery.datetimepicker.min.js',
+    'pouchdb/dist/pouchdb.min.js',
     'jquery/dist/jquery.min.js',
     'lodash/lodash.min.js'
 ];
