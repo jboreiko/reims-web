@@ -1,5 +1,7 @@
 /// <reference path="../_all.ts" />
 
+import PouchdbAuthentication from "pouchdb-authentication";
+
 namespace reimsApp.EyeglassRecords {
     "use strict";
 
@@ -36,11 +38,17 @@ namespace reimsApp.EyeglassRecords {
         const database_name = "eyeglasses";
         console.log("EyeglassRecords services");
 
+        pouchDB.plugin(PouchdbAuthentication);
+
         this.localDB = pouchDB(database_name);
         console.log("Opened local database ", this.localDB);
 
         this.remoteDB = pouchDB("http://localhost:5984/" + database_name);
         console.log("Opened remote database ", this.remoteDB);
+
+        this.remoteDB.login("rabit", "king", (error, response) => {
+            console.log("logging in the rabit king", error, response);
+        });
 
         const syncManager = this.localDB.sync(this.remoteDB, {
             live: true,
@@ -181,7 +189,16 @@ namespace reimsApp.EyeglassRecords {
     }
     };
 
-    const app = angular.module("reimsApp.EyeglassRecords", ["pouchdb"])
-    .service("EyeglassRecords", EyeglassRecords);
+    const module = angular.module("reimsApp.EyeglassRecords", ["pouchdb"]);
+    module.config(function(pouchDBProvider, POUCHDB_METHODS) {
+        // Example for nolanlawson/pouchdb-authentication
+        const authMethods = {
+          login: "qify",
+          logout: "qify",
+          getUser: "qify"
+        };
+        pouchDBProvider.methods = angular.extend({}, POUCHDB_METHODS, authMethods);
+    });
+    const app = module.service("EyeglassRecords", EyeglassRecords);
 }
 
