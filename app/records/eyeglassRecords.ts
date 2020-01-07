@@ -1,6 +1,6 @@
 /// <reference path="../_all.ts" />
 
-import PouchdbAuthentication from "pouchdb-authentication";
+// import PouchdbAuthentication from "pouchdb-authentication";
 
 namespace reimsApp.EyeglassRecords {
     "use strict";
@@ -38,17 +38,19 @@ namespace reimsApp.EyeglassRecords {
         const database_name = "eyeglasses";
         console.log("EyeglassRecords services");
 
-        pouchDB.plugin(PouchdbAuthentication);
+        // pouchDB.plugin(PouchAuthentication);
 
         this.localDB = pouchDB(database_name);
         console.log("Opened local database ", this.localDB);
 
-        this.remoteDB = pouchDB("http://localhost:5984/" + database_name);
+        this.remoteDB = pouchDB("http://localhost:8080/db/" + database_name);
         console.log("Opened remote database ", this.remoteDB);
 
-        this.remoteDB.login("rabit", "king", (error, response) => {
-            console.log("logging in the rabit king", error, response);
+        /*
+        this.remoteDB.login("admin", "test", (error, response) => {
+            console.log("logging in the test admin", error, response);
         });
+        */
 
         const syncManager = this.localDB.sync(this.remoteDB, {
             live: true,
@@ -125,11 +127,11 @@ namespace reimsApp.EyeglassRecords {
             _id: "_design/status_index",
             views: {
                 by_status: {
-                    map: function emitStatus(doc) {
+                    map: function (doc) {
                         if (doc.status) {
                             emit(doc.status);
                         } else {
-                            emit("no status");
+                            emit("some status");
                         }
                     }.toString()
                 }
@@ -142,7 +144,7 @@ namespace reimsApp.EyeglassRecords {
             if (err.status !== 409) {
                 console.error(err);
             }
-            console.log("index already installed");
+            console.log("status index already installed");
         });
 
         return this.localDB.query("status_index/by_status", {
@@ -157,14 +159,14 @@ namespace reimsApp.EyeglassRecords {
             _id: "_design/index",
             views: {
                 index: {
-                    map: function mapFun(doc) {
+                    map: function (doc) {
                         if (doc.status) {
                             emit(doc.status);
                         } else {
                             emit("no status");
                         }
                     }.toString(),
-                        reduce: "_count"
+                    reduce: "_count"
                 }
             }
         };
@@ -174,15 +176,10 @@ namespace reimsApp.EyeglassRecords {
             if (err.status !== 409) {
                 throw err;
             }
+            console.log("index index already created");
             // ignore if doc already exists
-        }).then(function() {
-            // find docs where title === "Lisa Says"
-        }).then(function (result) {
-            // handle result
-        }).catch(function (err) {
-            console.log(err);
         });
-        return this.localDB.query("index", {
+        return this.localDB.query("index/index", {
             keys: ["dispensed", "missing", "filed", "unfiled"],
             group: true
         });

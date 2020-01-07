@@ -10,7 +10,7 @@ namespace reimsApp.Home {
 
             const hist = EyeglassRecords.getStatusHist();
 
-            console.log("hist");
+            console.log("hist", hist);
 
             EyeglassRecords.getStatusHist().then(function(results) {
                 const scale = new Plottable.Scales.Linear();
@@ -26,6 +26,7 @@ namespace reimsApp.Home {
                     .addDataset(new Plottable.Dataset(data))
                     .sectorValue(function(d) { return d.value; }, scale)
                     .innerRadius(90)
+                    .labelsEnabled(true)
                     .attr("fill", function(d) { return d.value; }, colorScale)
                     .renderTo("svg#example");
 

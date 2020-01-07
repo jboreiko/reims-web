@@ -47,3 +47,6 @@ etc/dist/*
 
 # Couchdb data storage
 data/couchdb/
+
+# Mac indexing
+.DS_Store

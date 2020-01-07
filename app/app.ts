@@ -52,14 +52,4 @@ namespace reimsApp {
             dismissButton: true
         });
     }]);
-
-    reimsApp.config(function(pouchDBProvider, POUCHDB_METHODS) {
-        // Example for nolanlawson/pouchdb-authentication
-        const authMethods = {
-          login: "qify",
-          logout: "qify",
-          getUser: "qify"
-        };
-        pouchDBProvider.methods = angular.extend({}, POUCHDB_METHODS, authMethods);
-    });
 }

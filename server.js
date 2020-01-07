@@ -5,7 +5,7 @@ var path = require('path');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var app = express();
-
+/*
 passport.use(new localStrategy (
     function(username, password, done) {
 	console.log("Login attempt by", username);
@@ -63,8 +63,10 @@ app.use('/', function(req, res, next) {
 	res.redirect('/login');
     }
 });
-
+*/
 app.use('/', express.static(__dirname + '/public'));
+
+app.use((req, res) => {res.redirect('/')});
 
 // the first argument is the port
 var server = app.listen(process.argv[2], function() {

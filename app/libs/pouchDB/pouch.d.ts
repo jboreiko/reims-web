@@ -223,6 +223,12 @@ declare module 'pouchdb' {
   export = PouchDB;
 }
 
+declare var PouchAuthentication: any;
+
+declare module 'pouchdb-authentication' {
+	export default PouchAuthentication;
+}
+
 //
 // emit is the function that the PouchFilter.map function should call in order to add a particular item to
 // a filter view.
