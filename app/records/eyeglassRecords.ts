@@ -43,7 +43,7 @@ namespace reimsApp.EyeglassRecords {
         this.localDB = pouchDB(database_name);
         console.log("Opened local database ", this.localDB);
 
-        this.remoteDB = pouchDB("http://localhost:8080/db/" + database_name);
+        this.remoteDB = pouchDB("http://reimsweb.com/db/" + database_name);
         console.log("Opened remote database ", this.remoteDB);
 
         /*
